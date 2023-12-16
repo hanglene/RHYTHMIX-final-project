@@ -45,7 +45,10 @@
             </div>
           </div>
         </div>
-        <i routerLink="/cart" class="fas fa-shopping-cart hover:text-[#ECE4E3] ml-[45px] mt-[3px]"></i>
+        <div class="cart_icon" routerLink="/cart">
+        <i  class="fas fa-shopping-cart hover:text-[#ECE4E3] ml-[45px] mt-[3px]"></i>
+        <div class="cart_value">{{items.length}}</div>
+      </div>
       </div>
     </div>
 </div>

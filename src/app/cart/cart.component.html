@@ -1,110 +1,99 @@
-<body class="bg-BG w-screen h-screen">
-  <div class=" container mx-auto mt-10 justify-center font-Regular">
-    <div class="flex shadow-md my-10 justify-center">
-      <div class="w-3/4 bg-white bg-opacity-60 px-10 py-10">
+<div class="bg-BG w-screen h-screen">
+  <div class=" mx-auto justify-center font-Regular">
+    <div class="flex  my-10 justify-center">
+      <div class="w-3/4 bg-white bg-opacity-60 px-10 ">
         <div class="flex justify-between border-b border-gray-500 pb-8">
           <h1 class="text-2xl flex items-center font-bold">
             Shopping Cart<svg xmlns="http://www.w3.org/2000/svg" width="29" height="38" viewBox="0 0 39 48" fill="none" class="ml-3">
               <path d="M26.894 20.6154V10.4615C26.894 5.78836 23.5836 2 19.5 2C15.4164 2 12.106 5.78836 12.106 10.4615V20.6154M34.497 16.1189L36.9876 43.1958C37.1254 44.6946 36.0985 46 34.7816 46H4.21843C2.90148 46 1.87456 44.6946 2.01243 43.1958L4.50302 16.1189C4.62186 14.8269 5.57385 13.8462 6.70902 13.8462H32.291C33.4261 13.8462 34.3781 14.8269 34.497 16.1189ZM12.8454 20.6154C12.8454 21.0827 12.5144 21.4615 12.106 21.4615C11.6977 21.4615 11.3666 21.0827 11.3666 20.6154C11.3666 20.1481 11.6977 19.7692 12.106 19.7692C12.5144 19.7692 12.8454 20.1481 12.8454 20.6154ZM27.6334 20.6154C27.6334 21.0827 27.3023 21.4615 26.894 21.4615C26.4856 21.4615 26.1546 21.0827 26.1546 20.6154C26.1546 20.1481 26.4856 19.7692 26.894 19.7692C27.3023 19.7692 27.6334 20.1481 27.6334 20.6154Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
           </h1>
-          <h2 class="text-2xl font-bold">3 Items</h2>
+          <h2 class="text-2xl font-bold">{{ tongsoluong() }} Items </h2>
+          
         </div>
-        <div class="flex mt-10 mb-5">
+        <div class="alert alert-warning text-center p-5 h2" *ngIf="items.length==0" >
+          Bạn chưa chọn sản phẩm nào
+        </div>
+        <div class="flex mt-10 mb-5" *ngIf="items.length>0">
           <h3 class=" text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-          <h3 class=" text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
+          <h3 class=" text-gray-600 text-xs uppercase w-1/5 ml-6">Quantity</h3>
           <h3 class=" text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
           <h3 class=" text-gray-600 text-xs uppercase w-1/5 text-center">Delete</h3>
         </div>
-        <div class="flex items-center hover:bg-white -mx-8 px-6 py-5">
-          <div class="flex w-2/5"> <!-- product -->
-            <div class="w-20">
-              <img class="h-600 w-600" src="../../assets/image/lady-gaga-chromatica-cd-album-standard_2a7df85e5cd447d2bd6460dfb161f6bb_grande 3.png" alt="">
-            </div>
-            <div class="flex flex-col justify-center ml-4 uppercase">
-              <span class="font-bold text-sm">Lady Gaga - Born this way</span>
-              <span class="text-red-500 text-xs block">CD</span>
-            </div>
+        <div class="flex"  *ngFor="let item of items">
+        <div class="flex w-2/5">
+          <!-- product -->
+          <div class="w-20">
+            <img class="h-600 w-600" src="{{item.Image}}" alt="">
           </div>
-          <div class="flex justify-center w-1/5">
-            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512" (click)="decreaseQuantity()">
-              <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg>
-          
-            <input class="mx-2 border text-center w-8" type="text" [(ngModel)]="quantity" (input)="validateQuantity()">
-          
-            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512" (click)="increaseQuantity()">
-              <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg>
+          <div class="flex flex-col justify-center ml-4 uppercase">
+            <div class="flex items-center">
+              <span class="font-bold text-sm">{{item.Name}}</span>
+            </div>
+            <span class="text-red-500 text-xs block">{{item.category}}</span>
           </div>
-          <span class="text-center w-1/5 text-sm">{{ (quantity * 499000) | number:'1.0-0' }} VND</span>
-          <button class="text-center w-1/5  hover:text-red-500 text-gray-500 text-xs">REMOVE</button>
         </div>
+        <div class="mt-5 w-1/5 ml-15">
+          <button class="font-bold" (click)="decreaseQuantity(item)">-</button>
+          <input [(ngModel)]="item.amount" min="1" type="number" class="form-control text-center mx-2 border text-center w-16 bg-transparent border-none" >
+          <button class="font-bold" (click)="increaseQuantity(item)">+</button>
+        </div>
+        <div class="mt-5 w-1/5 text-center">
+          <span class=" w-1/5 text-sm">{{ getFormattedTotalPrice(item) }}</span>
+        </div>
+        <div class="mt-5 w-1/5 text-center">
+          <button class="text-center w-1/5 hover:text-red-500 text-gray-500 text-xs" (click)="removeItem(item)">REMOVE</button>
+        </div>
+          
+      </div>
 
-        <div class="flex items-center hover:bg-white -mx-8 px-6 py-5">
-          <div class="flex w-2/5"> <!-- product -->
-            <div class="w-20">
-              <img class="h-600 w-600" src="../../assets/image/tlinh-ai-jewel-case_b6871f8c6179429da96f24a1328ae819 2.png" alt="">
-            </div>
-            <div class="flex flex-col justify-center ml-4 flex-grow">
-              <span class="font-bold text-sm">TLINH - "ÁI" ALBUM (STANDARD VER.)</span>
-              <span class="text-red-500 text-xs block">CD</span>
-            </div>
-          </div>
-          <div class="flex justify-center w-1/5">
-            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512" (click)="decreaseQuantity()">
-              <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg>
-          
-            <input class="mx-2 border text-center w-8" type="text" [(ngModel)]="quantity" (input)="validateQuantity()">
-          
-            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512" (click)="increaseQuantity()">
-              <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg>
-          </div>
-          <span class="text-center w-1/5 text-sm">{{  (quantity * 499000) | number:'1.0-0' }} VND</span>
-          <button class="text-center w-1/5 hover:text-red-500 text-gray-500 text-xs">REMOVE</button>
-        </div>
 
-        <div class="flex items-center hover:bg-white -mx-8 px-6 py-5 ">
-          <div class="flex w-2/5"> <!-- product -->
-            <div class="w-20">
-              <img class="h-600 w-600" src="../../assets/image/ab67616d0000b27319aff2da63b211d75341e8eb 1.png" alt="">
-            </div>
-            <div class="flex flex-col justify-center ml-4 flex-grow uppercase">
-              <span class="font-bold text-sm">KESHI - Gabriel</span>
-              <span class="text-red-500 text-xs block">CD</span>
-            </div>
-          </div>
-          <div class="flex justify-center w-1/5">
-            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512" (click)="decreaseQuantity()">
-              <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg>
-          
-            <input class="mx-2 border text-center w-8" type="text" [(ngModel)]="quantity" (input)="validateQuantity()">
-          
-            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512" (click)="increaseQuantity()">
-              <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg>
-          </div>
-          <span class="text-center w-1/5  text-sm">{{  (quantity * 499000) | number:'1.0-0' }} VND</span>
-          <button class="text-center w-1/5  hover:text-red-500 text-gray-500 text-xs">REMOVE</button>
-        </div>
         <div class="flex  justify-between py-6 text-sm uppercase border-t border-gray-500">
-          <span class="text-[30px] justify-center font-bold ml-40 py-3">TOTAL</span>
-          <span class="text-[30px] justify-center font-bold mr-40 py-3">{{ (quantity * 499000 *3) | number:'1.0-0' }} VND</span>
+          <span class="text-[30px] justify-center font-bold ml-40 py-3">TOTAL: </span>
+          <span class="text-[30px] justify-center font-bold mr-40 py-3">{{ tongtien() }}</span>
         </div>
         <a routerLink="/payment">
           <button class="bg-[#9D5C5C]  hover:bg-black py-3 text-sm text-white uppercase w-full text-[30px] font-bold rounded-[30px]">Check out</button>
         </a>
-        
-
+        <button class="bg-black hover:bg-red-600  py-3 text-sm text-white uppercase w-full text-[30px] font-bold rounded-[30px] mt-5" (click)="clearCart()">CLEAR CARD&nbsp; <i class="fa fa-trash-o" style="font-size:20px"></i></button>
         <a href="#" class="flex  text-sm mt-10 justify-center text-black hover:text-[#9D5C5C] text-[15px]">
-          <svg class="fill-current mr-2 text-black w-4 " viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
+          <svg class="fill-current mr-2 text-black w-4 mb-6 " viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
           BACK TO HOMEPAGE
         </a>
       </div>
     </div>
     </div>
-</body>
-    
+  </div>
+
+
+<!-- cart.component.html -->
+<!-- <div class="alert alert-warning text-center p-5 h2" *ngIf="items.length==0">
+  Bạn chưa chọn sản phẩm nào
+</div>
+<table id="cart" class="table table-bordered" *ngIf="items.length>0">
+  <caption align="top" class="h3">GIỎ HÀNG CỦA BẠN</caption>
+  <tr>
+    <th>Tên sản phẩm</th>
+    <th>Giá</th>
+    <th>Số lượng</th>
+    <th>Thành tiền</th>
+  </tr>
+  <tr *ngFor="let item of items">
+    <td>{{ item.Name | uppercase }}</td>
+    <td>{{ item.UnitPrice}} </td>
+    <td>
+      <input [(ngModel)]="item.amount" min="1" type="number" class="form-control">
+    </td>
+    <td> {{ getFormattedTotalPrice(item) }}</td>
+  </tr>
+  <tr>
+    <th colspan="2">Tổng số lượng: {{ tongsoluong() }}</th>
+    <th colspan="2">Tổng tiền: {{ tongtien() }} VNĐ</th>
+  </tr>
+  <tr>
+    <td colspan="2"></td>
+    <td colspan="2">
+      <a class="btn btn-warning w-100" href="#">Thanh toán</a>
+    </td>
+  </tr>
+</table> -->

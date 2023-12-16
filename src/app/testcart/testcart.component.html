@@ -1,0 +1,24 @@
+
+{{errMessage}}
+<table border="1">
+<thead>
+<th>Id</th>
+<th>Fashion Subject</th>
+<th>Fashion Detail</th>
+<th>Image</th>
+</thead>
+<tbody>
+<tr *ngFor="let p of products">
+<td>{{p._id}}</td>
+<td>{{p.Name}}</td>
+<td>{{p.UnitPrice}} </td>
+<td>
+<img src="{{p.Image}}" width="100px" height="100px">
+</td>
+<td>
+    <button (click)="addtoCart(p)">ADD</button>
+</td>
+</tr>
+</tbody>
+</table>
+

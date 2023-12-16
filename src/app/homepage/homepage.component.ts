@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TredingPhhtpService } from '../treding-phhtp.service';
 import { map } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
-
+import { CartService } from '../cart.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-homepage',
@@ -12,8 +13,11 @@ import { Title } from '@angular/platform-browser';
 export class HomepageComponent implements OnInit {
 
   products: any;
+  productcart: Product[]=[];
+  // Danh sách sản phẩm trong giỏ hàng
+
   //set title of page
-  constructor(private _service: TredingPhhtpService, private titleService: Title) {
+  constructor(private _service: TredingPhhtpService, private titleService: Title, private addtocartservice:CartService) {
     this.titleService.setTitle("Homepage - Rhythmix"); 
     this._service.getProduct().pipe(
       map((data: any[]) => {
@@ -100,9 +104,13 @@ export class HomepageComponent implements OnInit {
       DSN.addEventListener("scroll", handleSlideButtonsDSN);
     }
   }
+
+
+  
   
  
   ngOnInit(): void {
+  
     window.addEventListener("load", this.initSlider.bind(this));
     window.addEventListener("load", () => {
       this.initSlider();
@@ -110,6 +118,9 @@ export class HomepageComponent implements OnInit {
     });
     
   }
-
-  
+  addtoCart(product: Product) {
+    this.addtocartservice.addtoCart(product);
+    console.log(this.addtocartservice.getitems());
+    alert('Đã thêm vào giỏ hàng')
+  }
 }

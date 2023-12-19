@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TredingPhhtpService } from '../treding-phhtp.service';
 import { map } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
+import { ProdcutAPIService } from '../prodcut-api.service';
+import { Cart } from 'src/INTERFACE/cart';
+import { CartService } from '../cart.service';
+import { Product } from 'src/INTERFACE/Product-infor';
+
 
 
 @Component({
@@ -10,12 +14,13 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-
+  productcart: Product[]=[];
   products: any;
   //set title of page
-  constructor(private _service: TredingPhhtpService, private titleService: Title) {
+  constructor(private _service:  ProdcutAPIService, private titleService: Title, private addtocartservice:CartService) {
     this.titleService.setTitle("Homepage - Rhythmix"); 
-    this._service.getProduct().pipe(
+  
+    this._service.getProdcut().pipe(
       map((data: any[]) => {
         return data.map((item: any) => {
           const price = parseFloat(item.Price.replace('Đ', '').trim());
@@ -110,6 +115,9 @@ export class HomepageComponent implements OnInit {
     });
     
   }
-
-  
+  addtoCart(product: Product) {
+    this.addtocartservice.addtoCart(product);
+    console.log(this.addtocartservice.getitems());
+    alert('Đã thêm vào giỏ hàng')
+  }
 }

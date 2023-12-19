@@ -1,0 +1,15 @@
+[{
+    "context": ["/ProductInfo"],
+    "target": "http://localhost:3002",
+    "secure": true,
+    "changeOrigin":true,
+    "logLevel":"debug"
+},
+{
+    "context": ["/api/"],
+    "target": "https://provinces.open-api.vn",
+    "secure": true,
+    "changeOrigin":true,
+    "logLevel":"debug"
+}
+]

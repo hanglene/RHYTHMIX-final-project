@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 
+
 @Component({
   selector: 'app-productinfo',
   templateUrl: './productinfo.component.html',

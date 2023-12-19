@@ -86,46 +86,47 @@
      <i class='fas'>&#xf104;</i>
    </button>
    <div class="dsa uppercase font-semibold	items-top" >
-     <div class="T1 group relative" *ngFor="let p of products">
-      <a href="#" class="h-full">
-        <div class="image-wrapper relative">
-          <img src="{{p.TrendingI}}" class="absolute" alt="">
-          <img class="hoverimg absolute" src="{{p.HoverTI}}" alt="hình">
-          <div class="grid grid-rows-2 absolute end-0 top-[5px] items-center justify-center w-[20%] h-[30%] gap-[5px]">
-            <div class="w-[1.9vw] h-[2.0vw]  bg-zinc-300 bg-opacity-80 rounded-full z-[3] flex items-center justify-center">
-              <i class="far fa-heart text-[0.9vw]  hover:text-[#820900]"></i>
-            </div>
-            <div class="relative z-[3] h-[100%] w-[100%] flex items-center justify-center">
-              <div class="w-[2.1vw] h-[2.1vw] absolute bg-zinc-300 bg-opacity-80 rounded-full flex items-center justify-center">
-                <i id="search-icon" class="fas fa-shopping-cart text-[0.9vw] hover:text-[#ECE4E3]"></i>
+    <div class="T1 group relative" *ngFor="let p of products">
+      <div *ngIf="p.Status === 'SALE'"> 
+        <a href="#"  routerLink="product-info" class="h-full">
+          <div class="image-wrapper relative">
+            <img src="{{p.Image}}" class="absolute" alt="">
+            <img class="hoverimg absolute" src="{{p.Image_1}}" alt="hình">
+            <div class="grid grid-rows-2 absolute end-0 top-[5px] items-center justify-center w-[20%] h-[30%] gap-[5px]">
+              <div class="w-[1.9vw] h-[2.0vw]  bg-zinc-300 bg-opacity-80 rounded-full z-[3] flex items-center justify-center">
+                <i class="far fa-heart text-[0.9vw]  hover:text-[#820900]"></i>
+              </div>
+              <div class="relative z-[3] h-[100%] w-[100%] flex items-center justify-center">
+                <div class="w-[2.1vw] h-[2.1vw] absolute bg-zinc-300 bg-opacity-80 rounded-full flex items-center justify-center">
+                  <i id="search-icon" class="fas fa-shopping-cart text-[0.9vw] hover:text-[#ECE4E3]"></i>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="h-[30px] top-0 left-[2%] w-2vw absolute text-center text-white text-xs font-bold leading-none bg-red-900 rounded-t-[6px]" style="clip-path: polygon(100% 43.8%, 100% 100%, 50.49% 59.8%, 0% 100%, 0% 43.8%, 0% 0%, 100% 0%); z-index: 3;">
+            <div class="h-[30px] top-0 left-[2%] w-2vw absolute text-center text-white text-xs font-bold leading-none bg-red-900 rounded-t-[6px]" style="clip-path: polygon(100% 43.8%, 100% 100%, 50.49% 59.8%, 0% 100%, 0% 43.8%, 0% 0%, 100% 0%); z-index: 3;">
 
-            <p class="text-[15px] mt-[2px]">{{p.Promotion}}</p>
+              <p class="text-[15px] mt-[2px]">{{p.Promotion}}</p>
+            </div>
           </div>
+          <br>
+        </a>
+        <div class="h-[72px]" id="Content">
+          <div class="h-[48px]" id="Ten">
+         <p class="w-full text-center">
+           {{p. Artist}} - {{p.Name}} - {{p.category}}
+         </p>
         </div>
-        <br>
-      </a>
-       <p class="w-full text-center">
-         {{p. Content}}
-       </p>
-       <div>
-        <span class="text-[#CE0001] text-[14px]"><b>{{p.CurrentPrice  }} VND</b></span>   &nbsp;  <del class="text-[12px] opacity-[50%]"> {{p.Price}} </del>    
+        <div>
+          <span class="text-[#CE0001] text-[14px]"><b>{{p.CurrentPrice}} VND</b></span>   &nbsp;  <del class="text-[12px] opacity-[50%]"> {{p.UnitPrice}} </del>    
+         </div>
+        </div>
+         <form action="#" method="post" class="Addcart  w-full bottom-100 left-0 p-4 rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+          <input type="hidden" name="id" id="#">
+          <button (click)="addtoCart(p)" type="submit" name="add" class="w-full border-2 border-black rounded-full font-semibold h-10 hover:bg-black hover:text-white text-[0.8vw]">
+            Add To Cart
+          </button>
+        </form>
        </div>
-       <div>
- 
-       </div>
-       <form action="#" method="post" class="Addcart  w-full bottom-100 left-0  p-4 rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-         <input type="hidden" name="id" id="#">
-         <button type="submit" name="add" class="w-full border-2 border-black rounded-full font-semibold h-10 hover:bg-black hover:text-white text-[0.8vw]">
-           Add To Cart
-         </button>
-       </form>
-       
-     </div>
- 
+    </div>
   </div>
  
   <button class="slidebutton"  id='next-slide'>
@@ -146,7 +147,7 @@
     <a href="#">
     <div class="items-center justify-center w-fit h-fit">
       <div class="flex items-center justify-center relative">
-        <img src="http://localhost:4200/assets/img/image%207.png" alt="">
+        <img src="http://localhost:4200/assets/img/image%207.png"  id="ORP" alt="" class="w-[415px] h-[259px]">
         <div class=" h-[15%] top-[85%] w-[100%] bg-stone-300 bg-opacity-80 shadow absolute tracking-widest">
           <div class=" flex items-center justify-center h-full text-white font-bold	trans ">
             CASSETTE
@@ -158,7 +159,7 @@
   <a href="#">
     <div class="items-center justify-center w-fit h-fit">
       <div class="flex items-center justify-center relative">
-        <img src="http://localhost:4200/assets/img/image%207.png" alt="">
+        <img src="http://localhost:4200/assets/img/image%207.png"  id="ORP" alt="" class="w-[415px] h-[259px]">
         <div class=" h-[15%] top-[85%] w-[100%] bg-stone-300 bg-opacity-80 shadow absolute tracking-widest">
           <div class=" flex items-center justify-center h-full text-white font-bold	">
             CD
@@ -170,7 +171,7 @@
   <a href="#">
     <div class="items-center justify-center w-fit h-fit">
       <div class="flex items-center justify-center relative">
-        <img src="http://localhost:4200/assets/img/image%207.png" alt="">
+        <img src="http://localhost:4200/assets/img/image%207.png" id="ORP" alt="" class="w-[415px] h-[259px]">
         <div class=" h-[15%] top-[85%] w-[100%] bg-stone-300 bg-opacity-80 shadow absolute tracking-widest">
           <div class=" flex items-center justify-center h-full text-white font-bold	">
             VINYL
@@ -181,6 +182,7 @@
   </a>
   </div>
 <!-- CATE -->
+
 <!-- TREDING -->
 <div id="Heading">   
   <a href="#" class="font-Header"><h1>TRENDING</h1></a>
@@ -194,10 +196,11 @@
   </button>
   <div class="dsb uppercase font-semibold">
     <div class="T1 group relative" *ngFor="let p of products">
+      <div *ngIf="p.Status === 'TRENDING'"> 
       <a href="#"  routerLink="product-info" class="h-full">
         <div class="image-wrapper relative">
-          <img src="{{p.TrendingI}}" class="absolute" alt="">
-          <img class="hoverimg absolute" src="{{p.HoverTI}}" alt="hình">
+          <img src="{{p.Image}}" class="absolute" alt="">
+          <img class="hoverimg absolute" src="{{p.Image_1}}" alt="hình">
           <div class="grid grid-rows-2 absolute end-0 top-[5px] items-center justify-center w-[20%] h-[30%] gap-[5px]">
             <div class="w-[1.9vw] h-[2.0vw]  bg-zinc-300 bg-opacity-80 rounded-full z-[3] flex items-center justify-center">
               <i class="far fa-heart text-[0.9vw]  hover:text-[#820900]"></i>
@@ -211,19 +214,24 @@
         </div>
         <br>
       </a>
+      <div class="h-[72px]" id="Content">
+        <div class="h-[48px]" id="Ten">
        <p class="w-full text-center">
-         {{p. Content}}
+         {{p. Artist}} - {{p.Name}} - {{p.category}}
        </p>
+      </div>
        <div>
-        <span>{{p.Price}}</span>
+        <span>{{p.UnitPrice}}</span>
        </div>
+      </div>
        <form action="#" method="post" class="Addcart  w-full bottom-100 left-0 p-4 rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100">
         <input type="hidden" name="id" id="#">
-        <button type="submit" name="add" class="w-full border-2 border-black rounded-full font-semibold h-10 hover:bg-black hover:text-white text-[0.8vw]">
+        <button (click)="addtoCart(p)" type="submit" name="add" class="w-full border-2 border-black rounded-full font-semibold h-10 hover:bg-black hover:text-white text-[0.8vw]">
           Add To Cart
         </button>
       </form>
      </div>
+    </div>
  </div>
 
  <button class="slidebutton"  id='next-slide'>
@@ -246,41 +254,47 @@
   </button>
   <div class="dsn uppercase font-semibold">
     <div class="T1 group relative" *ngFor="let p of products">
-      <a href="#" class="h-full">
-        <div class="image-wrapper relative">
-          <img src="{{p.TrendingI}}" class="absolute" alt="">
-          <img class="hoverimg absolute" src="{{p.HoverTI}}" alt="hình">
-          <div class="grid grid-rows-2 absolute end-0 top-[5px] items-center justify-center w-[20%] h-[30%] gap-[5px]">
-            <div class="w-[1.9vw] h-[2.0vw]  bg-zinc-300 bg-opacity-80 rounded-full z-[3] flex items-center justify-center">
-              <i class="far fa-heart text-[0.9vw]  hover:text-[#820900]"></i>
-            </div>
-            <div class="relative z-[3] h-[100%] w-[100%] flex items-center justify-center">
-              <div class="w-[2.1vw] h-[2.1vw] absolute bg-zinc-300 bg-opacity-80 rounded-full flex items-center justify-center">
-                <i id="search-icon" class="fas fa-shopping-cart text-[0.9vw] hover:text-[#ECE4E3]"></i>
+      <div *ngIf="p.Status === 'NEW'"> 
+        <a href="#"  routerLink="product-info" class="h-full">
+          <div class="image-wrapper relative">
+            <img src="{{p.Image}}" class="absolute" alt="">
+            <img class="hoverimg absolute" src="{{p.Image_1}}" alt="hình">
+            <div class="grid grid-rows-2 absolute end-0 top-[5px] items-center justify-center w-[20%] h-[30%] gap-[5px]">
+              <div class="w-[1.9vw] h-[2.0vw]  bg-zinc-300 bg-opacity-80 rounded-full z-[3] flex items-center justify-center">
+                <i class="far fa-heart text-[0.9vw]  hover:text-[#820900]"></i>
+              </div>
+              <div class="relative z-[3] h-[100%] w-[100%] flex items-center justify-center">
+                <div class="w-[2.1vw] h-[2.1vw] absolute bg-zinc-300 bg-opacity-80 rounded-full flex items-center justify-center">
+                  <i id="search-icon" class="fas fa-shopping-cart text-[0.9vw] hover:text-[#ECE4E3]"></i>
+                </div>
               </div>
             </div>
           </div>
+          <br>
+        </a>
+        <div class="h-[72px]" id="Content">
+          <div class="h-[48px]" id="Ten">
+         <p class="w-full text-center">
+           {{p. Artist}} - {{p.Name}} - {{p.category}}
+         </p>
         </div>
-        <br>
-      </a>
-       <p class="w-full text-center">
-         {{p. Content}}
-       </p>
-       <div>
-        <span>{{p.Price}}</span>
+         <div>
+          <span>{{p.UnitPrice}}</span>
+         </div>
+        </div>
+         <form action="#" method="post" class="Addcart  w-full bottom-100 left-0 p-4 rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+          <input type="hidden" name="id" id="#">
+          <button (click)="addtoCart(p)" type="submit" name="add" class="w-full border-2 border-black rounded-full font-semibold h-10 hover:bg-black hover:text-white text-[0.8vw]">
+            Add To Cart
+          </button>
+        </form>
        </div>
-       <form action="#" method="post" class="Addcart  w-full bottom-100 left-0 p-4 rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-        <input type="hidden" name="id" id="#">
-        <button type="submit" name="add" class="w-full border-2 border-black rounded-full font-semibold h-10 hover:bg-black hover:text-white text-[0.8vw]">
-          Add To Cart
-        </button>
-      </form>
-     </div>
     
  </div>
  <button class="slidebutton"  id='next-slide'>
   <i class='fas'>&#xf105;</i>
 </button>
+</div>
  </div>
 </div>
 <!-- NEW -->
@@ -295,7 +309,7 @@
     <a routerLink="/blog-detail" fragment="top">
     <div class="flex items-center justify-center relative">
       <img src="http://localhost:4200/assets/img/image%207.png" alt="">
-      <div class="content md:top-[74%] top-[80%] w-[90%] bg-zinc-300 rounded-lg shadow grid grid-rows-3 absolute text-[1.2vw] md:text-[0.7vw]">
+      <div class="content md:top-[74%] top-[80%] w-[90%] bg-zinc-300 rounded-lg shadow grid grid-rows-3 absolute text-[1.2vw] md:text-[0.6vw]">
         <div class="flex items-center justify-center">
           <p  class="text-justify">Hoang Thuy Linh scoops Best Asian Artist Vietnam title at MAMA 2019</p>
         </div>
@@ -318,7 +332,7 @@
   <div class="items-center justify-center w-fit h-fit">
     <div class="flex items-center justify-center relative">
       <img src="http://localhost:4200/assets/img/image%207.png" alt="">
-      <div class="content md:top-[74%] top-[80%] w-[90%] bg-zinc-300 rounded-lg grid grid-rows-3 absolute text-[1.2vw] md:text-[0.7vw]">
+      <div class="content md:top-[74%] top-[80%] w-[90%] bg-zinc-300 rounded-lg grid grid-rows-3 absolute text-[1.2vw] md:text-[0.6vw]">
         <div class="flex items-center justify-center">
           <p  class="text-justify">Hoang Thuy Linh scoops Best Asian Artist Vietnam title at MAMA 2019</p>
         </div>
@@ -340,7 +354,7 @@
   <div class="items-center justify-center w-fit h-fit">
     <div class="flex items-center justify-center relative">
       <img src="http://localhost:4200/assets/img/image%207.png" alt="">
-      <div class="content md:top-[74%] top-[80%] w-[90%] bg-zinc-300 rounded-lg shadow grid grid-rows-3 absolute text-[1.2vw] md:text-[0.7vw]">
+      <div class="content md:top-[74%] top-[80%] w-[90%] bg-zinc-300 rounded-lg shadow grid grid-rows-3 absolute text-[1.2vw] md:text-[0.6vw]">
         <div class="flex items-center justify-center">
           <p  class="text-justify">Hoang Thuy Linh scoops Best Asian Artist Vietnam title at MAMA 2019</p>
         </div>
@@ -405,3 +419,5 @@
 </div>
 </form>
 </div>
+
+

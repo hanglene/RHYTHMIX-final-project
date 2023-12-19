@@ -142,8 +142,9 @@ div#Heading {
     z-index: 1;
     transition: transform 0.3s ease-in-out;
     transition: all ease 300ms;
-    width: 100%;
-    height: auto;
+    width:  296px;
+    height: 296px;
+    background-color: #fff;
   }
   .content {
     margin: auto; /* Căn giữa theo chiều ngang */
@@ -151,17 +152,25 @@ div#Heading {
     align-items: center; /* Căn giữa theo chiều dọc */
     box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.45), 25px 0 20px -20px rgba(0, 0, 0, 0.45), 0px 25px 20px -20px rgba(0, 0, 0, 0.45), -25px 0 20px -20px rgba(0, 0, 0, 0.45);  
   }
-/*   
-  @media only screen and (max-width: 1070px) {
-    #bannertb> {
-      font-size: 10px;
+  @media only screen and (max-width: 960px) {
+    .T1 img  {
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease-in-out;
+      transition: all ease 300ms;
+      width:  148px;
+      height: 148px;
     }
-    i.fas {
-      font-size: 20px;
+    #ORP {
+      width: 237.67px;
+      height: 148.33px;
     }
-
-
-
-
-
-} */
+  }
+  @media only screen and (max-width: 960px) {
+    div#Content {
+      height: 120px;
+    }
+    div#Ten{
+      height: 96px;
+    } 
+  }

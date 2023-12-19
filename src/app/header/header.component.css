@@ -1,0 +1,33 @@
+/* Mã CSS này sẽ chỉnh màu nền cho thanh cuộn ngang */
+::-webkit-scrollbar {
+    background-color: #f5f5f5; /* Màu nền cho thanh cuộn */
+    width: 10px; /* Độ rộng của thanh cuộn */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; /* Màu nền cho phần điều hướng trong thanh cuộn */
+  }
+ ::-webkit-scrollbar {
+    opacity: 0;
+  }
+  #Scroll {
+    overflow-y: scroll;
+    overflow-x: hidden;
+ }
+ @media only screen and (max-width: 960px) {
+  #User{
+      visibility: hidden;
+      position: relative;
+  }
+}
+@media only screen and (min-width: 961px) {
+    #BAR{
+        visibility: hidden;
+        position: absolute;
+    }
+    #User{
+      visibility: visible;
+      position: relative;
+  }
+  
+}

@@ -1,51 +1,118 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<div class="bg-[#FAFDF2] w-[full] grid grid-cols-3 pr-[2vw] pl-[2vw] font-Regular">
-    <div class="flex items-center ">
+<div class="bg-[#FAFDF2] w-[full] grid grid-cols-3 pr-[2vw]  font-Regular">
+  <div class="absolute z-[10] bg-[#757575] opacity-[90%] top-[-40%] l-[0px] hidden" id="RSM">
+    <nav class="mx-auto flex md:bg-[#757575] p-6 lg:px-5 h-screen w-[300px]" aria-label="Global">
+      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto justify-center mb-[20px] mt-[20px] ">
+        <button class="float-right mb-[20px]" id="Exitbutton">
+          <i style="font-size: 24px;" class="fa">&#xf00d;</i>
+        </button>
+        <a href="#" routerLink="/" class="block lg:inline-block lg:mt-0 text-white hover:text-black mb-[20px] mr-12 font-semibold bg-contain ">
+          Login
+        </a>
+        <a href="#" routerLink="/" class="block lg:inline-block lg:mt-0 text-white hover:text-black mb-[20px] mr-12 font-semibold bg-contain ">
+          Sign-Up
+        </a>
+        <a href="#" routerLink="/" class="block lg:inline-block lg:mt-0 text-white hover:text-black mb-[20px] mr-12 font-semibold bg-contain ">
+          Home
+        </a>
+        <a href="#" routerLink="/aboutus" class="block lg:inline-block lg:mt-0 text-white hover:text-black mb-[20px] mr-4 font-semibold">
+          About Us
+        </a>
+        
+            <a routerLink="/list-product"
+              class="menu-hover my-2 py-1 text-base lg:mx-4"
+              onClick=""
+              class="block lg:inline-block lg:mt-0 text-white hover:text-black mr-4 font-semibold"
+            >
+              Category
+            </a>
+            <a
+              class="my-2 block py-1 font-semibold text-white hover:text-black md:mx-2"
+              >- CD</a
+            >
+        
+            <a
+              class="my-2 block py-1 font-semibold text-white hover:text-black md:mx-2"
+              >- Vinyl</a
+            >
+            <a
+              class="my-2 block py-1 font-semibold text-white hover:text-black md:mx-2"
+              >- Cassette
+            </a>
+    
+        <a href="" routerLink="/all-blog" class="block lg:inline-block lg:mt-0 text-white hover:text-black font-semibold mb-[20px]">
+          Blog
+        </a>
+        <a href="" routerLink="/contactus" class="block lg:inline-block lg:mt-0 text-white hover:text-black font-semibold">
+          Contact Us
+        </a>
+      </div>
+    </nav>
+  </div>
+    <div class="flex items-center  relative" id="User">
         <p class="font-bold" >
             <a href="#" routerLink="/account"><i class="fas fa-user-circle ml-[1.75rem] mr-[1.75rem] hover:text-[#ECE4E3] "></i></a>
             <span class="mr-[10px]"><a href="#" routerLink="/login" class="hover:text-[#ECE4E3] ">Login</a></span> |
             <span class="ml-[10px]"><a href="#" routerLink="/signup" class="hover:text-[#ECE4E3]">Sign up</a></span>
         </p>
     </div>
+  <div class="flex items-center absolute top-[10px] ">
+    <div class="relative">
+      <p class="font-bold">
+        <button >
+          <i style="font-size:24px " class="fa pl-[2vw]"  id="BAR">&#xf0c9;</i>
+        </button>
+      </p>
+    </div>
+  </div>
+
+
     <div class="max-w-[100%] flex justify-center items-center">
             <img src="../../assets/img/LOGO đỏ 1.png" routerLink="/" class="max-h-10" alt="logo">
     </div>
     <div class="flex content-center flex-row-reverse">
-      <div class="flex content-center text-right mr-[1.75rem] mt-[20px] ml-[24px]">
-        <div class="relative">
+      <div class="flex content-center text-right mr-[1.75rem]  ml-[24px]">
+        <div class=" flex relative">
           <div class="flex justify-between">
             <div class="flex">
-              <form role="search" autocomplete="off" class="search focus:border-0 w-full border-0 flex" id="search">
-                <input type="search" name="q" value="" autocomplete="off" aria-autocomplete="list" autocorrect="off" aria-label="Search..." placeholder="Search..." class="bg-inherit border-b-2 focus:border-transparent focus:outline-none w-full text-black">
-              </form>
-              <i id="search-icon" class="fas fa-search hover:text-[#ECE4E3] flex cursor-pointer"></i>
-            </div>
-            <div class="flex justify-end">
-              <div id="search-container" class="flex items-center hidden transition-all duration-300 ease-in-out absolute top-7 right-0 ">
-                <div class="w-80  h-100% bg-zinc-300">
-                <div class="w-80 h-100% left-[0px] top-0 absolute bg-zinc-300">
-                  <div class="w-80 h-px left-0 top-[0px] absolute border border-black"></div>
-            <div class="grid grid-rows">
-              <div class="grid grid-cols-2 border-b-2	border-black  ">
-                <img src="../../assets/img/CHROMATICACD_1024x1024.webp" alt="">
-                <div class="flex flex-col items-center justify-left text-left mt-[20px]">
-                  <p>Chromatica - CD</p>
-                  <br>
-                  <p>499,000 VND</p>
-                  <br>
-                  <p>Lady GaGa</p>
-                </div>
+              <div class="flex ">
+                <form role="search" autocomplete="off" class="search focus:border-0 w-full border-0 flex" id="search">
+                  <input id="search-input"  oninput="handleInputChange()" [(ngModel)]="productArtist"  [(ngModel)]="productName" type="search" name="q" autocomplete="on" aria-autocomplete="list" autocorrect="off" aria-label="Search..." placeholder="Search..." class="bg-inherit border-b-2 focus:border-transparent focus:outline-none w-full text-black" (input)="searchProduct()"  (input)="searchProductA()">
+                </form>
+                <button>
+                  <i id="search-icon" class="fas fa-search hover:text-[#ECE4E3] flex cursor-pointer "></i>
+                </button>
               </div>
-            </div>
-            <div class="Line24 w-80 h-px left-0 bottom-[0px] absolute border border-neutral-500"></div>
+              <div class="flex justify-end">
+                <div id="search-container" class="tab-0 flex hidden items-center transition-all duration-300 ease-in-out absolute top-[2.5rem] right-0">
+                  <div class="w-30 h-100% bg-zinc-300 mr-[350px]">
+                    <div class="w-96 h-100% left-[0px] top-0 absolute bg-zinc-300" style="max-height: 400px;" id="Scroll">
+                      <div class="w-96 h-px left-0 top-[0px] absolute border border-black"></div>
+                      <div class="grid grid-rows">
+                        <div class="border-b-2 border-black" *ngFor="let product of productInfo">
+                          <a href="#" class="grid grid-cols-2 hover:bg-[#FAFDF2]">
+                            <div class="flex items-center justify-center">
+                              <!-- <img src="{{product.Image}}" alt="" class="w-[100px] h[100px]"> -->
+                            </div>
+                            <div class="flex flex-col items-center justify-left text-left">
+                              <p>{{product.Name}}-{{product.category}}</p>
+                              <br>
+                              <p>{{product.UnitPrice}}</p>
+                              <br>
+                              <p>{{product.Artist}}</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-        <i routerLink="/cart" class="fas fa-shopping-cart hover:text-[#ECE4E3] ml-[45px] mt-[3px]"></i>
+        <i routerLink="/cart" class="fas fa-shopping-cart hover:text-[#ECE4E3] ml-[45px] mt-[12px]"></i>
       </div>
     </div>
 </div>
+
+

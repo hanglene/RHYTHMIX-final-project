@@ -1,189 +1,203 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="payment bg-BG h-full w-full py-[2vw]">
-<div class="mx-[20%] bg-[#F0F0F0] bg-opacity-[90%] w-fit ">
-    <div class="paymentcontent flex flex-row mx-[3vw] my-[2vw]">
+<div class="payment bg-BG h-full w-full pt-[1px] pb-[15px]">
+<div class="mx-[20%] bg-[#F0F0F0] bg-opacity-[90%] w-fit h-fit ">
+    <div class="paymentcontent flex flex-row mx-[1vw] my-[2vw]">
         <div class="BT my-[30px]">
             <div>
                 <h1 class="text-4xl">Shopping Cart.</h1>
             </div>
             <div class="mt-[30px]">
-                <table cellpadding="20px" >
-                    <thead >
-                        <tr>
-                            <td colspan="2">PRODUCT</td>
-                            <td>QUANTITY</td>
-                            <td>PRICE</td>
-                        </tr>
+                <table cellpadding="10px" class="w-[500px]">
+                    <thead>
+                      <tr>
+                        <td colspan="2">PRODUCT</td>
+                        <td>QUANTITY</td>
+                        <td>PRICE</td>
+                      </tr>
                     </thead>
-                    <tbody >
-                        <tr>
-                            <td><img src="../../assets/img/CHROMATICACD_1024x1024.webp" alt="" class="w-[102px]">
-                            <td >
-                                Chromatica  <br>
-                                - Lady Gaga <br>
-                                - Đĩa CD <br>
-                            </td> 
-                            <td class="text-center">
-                                <button id="decreaseBtn"><span>-</span></button>
-                                <input type="number" id="quantityInput" value="1" min="1" class="bg-inherit text-center w-[50px] border border-collapse">
-                                <button id="increaseBtn"><span>+</span></button>
-                              </td>
-                            <td >{{ (+quantityInput.value * 640000) | number:'1.0-0' }} VND</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="3"><input class="rounded-full w-full bg-[#BBBBBB]" type="text" aria-label="Discount Code" placeholder="Discount Code" >
-                            </td>
-                            <td>
-                                <button class="bg-[#CDCDCD] rounded-full w-full ">
-                                    INPUT
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">Subtotal</td>
-                            <td>{{ (+quantityInput.value * 640000) | number:'1.0-0' }} VND</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">Shipping fee</td>
-                            <td>20,000 VND</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">Discount</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                Total
-                            </td>
-                            <td>
-                                {{ (+quantityInput.value * 640000 + 20000) | number:'1.0-0' }} VND
-                            </td>
-                        </tr>
+                    <tbody>
+                      <tr *ngFor="let item of items">
+                        <td  class="w-[100px] h-[100px]">
+                          <img src="{{item.Image}}" alt="">
+                        </td>
+                        <td>
+                          {{ item.Name }} <br>
+                          - {{ item.category }} <br>
+                        </td>
+                        <td class="text-center">
+                          <button (click)="decreaseQuantity(item)"><span>-</span></button>
+                          <input [(ngModel)]="item.amount" type="number" value="1" min="1" class="bg-inherit text-center w-[50px] border border-collapse">
+                          <button (click)="increaseQuantity(item)"><span>+</span></button>
+                        </td>
+                        <td>{{ getFormattedTotalPrice(item) }}</td>
+                      </tr>
+                  
+                      <tr>
+                        <td colspan="3">
+                          <input class="rounded-full w-full bg-[#BBBBBB]" type="text" aria-label="Discount Code" placeholder="Discount Code">
+                        </td>
+                        <td>
+                          <button class="bg-[#CDCDCD] rounded-full w-full">
+                            INPUT
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">Subtotal</td>
+                        <td>{{ tongtien()  }}</td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">Shipping fee
+                        </td>
+                        <td>20,000 VND</td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">Discount</td>
+                        <td *ngFor = 'let d of discountInfo'>
+                          {{d.discount_percent}} %
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">Total</td>
+                        <td></td>
+                      </tr>
                     </tbody>
-                </table>
+                  </table>
             </div>
         </div>
-        <div class="BP bg-[#D8D9DB] ml-[80px] my-[30px]">
+        <div class="BP bg-[#D8D9DB] ml-[80px] my-[30px] w-[500px]">
             <div class="mx-[20px]">
-                <div>
-                    <h1 class="text-4xl">
-                        Payment Info.
-                    </h1>
-                   </div>
-                   <div class="mt-[30px]">
-                <form action="">
-                    <table class="w-full" cellpadding="10px">
-                        <thead>
-                            <tr>
-                                <td colspan="3">Payment Method:</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <div class="flex flex-row">
-                                        <div>                                  
-                                            <input type="radio" name="PaymentMethod" id="COD"> 
-                                        </div>
-                                        <div>
-                                            <i class="fa mx-[20px]">&#xf0d6;</i>
-                                        </div>
-                                        <div>
-                                            <p>COD</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row">
-                                        <div>                                  
-                                            <input type="radio" name="PaymentMethod" id="Banking"> 
-                                        </div>
-                                        <div>
-                                            <i class="fa mx-[20px]">&#xf09d;</i>
-                                        </div>
-                                        <div>
-                                            <p>Banking</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row ">
-                                        <div>                                  
-                                            <input type="radio" name="PaymentMethod" id="PayPal"> 
-                                        </div>
-                                        <div>
-                                            <i class="fa mx-[22px]">&#xf1ed;</i>
-                                        </div>
-                                        <div >
-                                            <p>PayPal</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr >
-                                <td colspan="3">
-                                    Customer Name:
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <input class="rounded-full w-full bg-inherit" type="text" aria-label="Stupid Cat" placeholder="Stupid Cat">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3"> Deliver Address:</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <input class="rounded-full w-full bg-inherit" type="text" aria-label="10lynamde" placeholder="10lynamde">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    Phone Number:
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <input  class="rounded-full w-full bg-inherit" type="number" aria-label="xxx-xxxx-xxx-123" placeholder="xxx-xxxx-xxx-123">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">Card Number:</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <input id="CardNumber" class="rounded-full w-full bg-inherit" type="number" aria-label="xxx-xxxx-xxx-123" placeholder="xxx-xxxx-xxx-123">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">Expiration Date:</td>
-                                <td>CVV:</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <select id="ExpirationMonth" name="month" [(ngModel)]="dateSelection.month" (change)="handleDateChange() " class="rounded-full w-full bg-inherit">
-                                        <option *ngFor="let month of months" [value]="month.value">{{ month.label }}</option>
-                                      </select>
-                                    </td>
-                                    <td>
-                                        <select id="ExpirationYear" name="year" [(ngModel)]="dateSelection.year" (change)="handleDateChange()" class="rounded-full w-full bg-inherit">
-                                            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-                                          </select>
-                                    </td>
-                                <td><input id="CVV" type="number" aria-label="xxx" placeholder="xxx" class="rounded-full w-full bg-inherit"></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <a routerLink="/ord-complete-page">
-                                        <button class="bg-red-800 p-[10px] rounded-full w-full text-[30px] hover:text-white hover:bg-black">
-                                            <b>    Check out </b>
-                                        </button>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
+              <div>
+                <h1 class="text-4xl">
+                  Shipment Info.
+                </h1>
+              </div>
+              <div class="mt-[30px] relative">
+                <form action="" class="absolute" id="CustomerInfo" [formGroup]="CustomerInfoForm">
+                  <table class="w-[480px]" cellpadding="10px" >
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        <td colspan="3">
+                          Customer Name:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                            <input [(ngModel)]="paymentinfo.Customer_Name" required class="rounded-full w-full bg-inherit" type="text" aria-label="Stupid Cat" placeholder="Stupid Cat" formControlName="CustomerName" id="CustomerName">                          <span *ngIf="CustomerInfoForm.hasError('required','Customer Name')" class="text-red-500 float-left text-xs">*Customer Name</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          Deliver Address:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <input  [(ngModel)]="paymentinfo.Deliver_Address" required class="rounded-full w-full bg-inherit" type="text" aria-label="10lynamde" placeholder="10lynamde" formControlName="DeliverAddress"  type="DeliverAddress" id="DeliverAddress"  >
+                          <span *ngIf="CustomerInfoForm.hasError('required','Deliver Address')" class="text-red-500 float-left text-xs">*Deliver Address</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          Phone Number:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <input  required class="rounded-full w-full bg-inherit" aria-label="xxx-xxxx-xxx-123" placeholder="xxx-xxxx-xxx-123" formControlName="PhoneNumber"  type="PhoneNumber" id=" PhoneNumber" [(ngModel)]="paymentinfo.Phone_Number" >
+                          <span *ngIf="CustomerInfoForm.hasError('required',' PhoneNumber')" class="text-red-500 float-left text-xs">*Phone Number</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          Email:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <input  required class="rounded-full w-full bg-inherit" aria-label="XXX@gmail.com" placeholder="XXX@gmail.com" formControlName="email"  type="email" id="email" [(ngModel)]="paymentinfo.Email" >
+                          <span *ngIf="CustomerInfoForm.hasError('required','email') && CustomerInfoForm.controls['email'].dirty" class="text-red-500 float-left text-xs">*Email is required</span>
+                          <span *ngIf="CustomerInfoForm.hasError('email','email')" class="text-red-500 float-left text-xs">*Email is invalid</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                            <button [disabled]="CustomerInfoForm.invalid" [class.disabled]="CustomerInfoForm.invalid" (click)="CustomerForm()" id="PM" class="bg-red-800 rounded-full w-[250px] text-[25px] hover:text-white hover:bg-black mx-auto block">              
+                                    <b>Next to payment method</b>
+                            </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </form>
+                <form action="" class="hidden" id="PaymentInfo" [formGroup]="PaymentInfoForm ">
+                    <table cellpadding="20px" class="border w-[480px]">
+                     <tr>
+                        <td>
+                            <h1>
+                                <b>                                
+                                    Shipping Method
+                                </b>
+                            </h1>
+                        </td>
+                     </tr>
+                     <tr> 
+                        <input  required type="checkbox" name="Delivery" value="OnAddress Delivery" id="Delivery" class="ml-[17px]" formControlName="ShippingMethod" [(ngModel)]="paymentinfo.Shipping_Method" (change)=" checkChange($event, paymentinfo)">  
+                        OnAddress Delivery
+                     </tr>
+                     <tr>
+                        <td>
+                            <h1>
+                                <b>
+                                    PaymentMethod
+                                </b>
+                            </h1>
+                        </td>
+                     </tr>
+                     <div class="flex flex-row border border-black">
+                        <div >
+                            <input required type="radio" value="COD" name="PaymentMethod" id="COD" (click)="toggleCODInfo()" [(ngModel)]="paymentinfo.Payment_Method"  (change)=" radioChange($event, paymentinfo)">
+                        </div>
+                        <div>
+                            <i class="fa mx-[20px]">&#xf09d;</i>
+                        </div>
+                        <div>
+                            <p>COD</p>
+                        </div>
+                    </div>
+                    <div [hidden]="!showCODInfo" id="CODInfo" >
+                        <p>Please prepare cash to pay for your order upon delivery.</p>
+                    </div>
+                    
+                    <div class="flex flex-row border border-black">
+                        <div>
+                            <input required type="radio" value="Banking" name="PaymentMethod" id="Banking" (click)="toggleBankingInfo()" [(ngModel)]="paymentinfo.Payment_Method"  (change)=" radioChange($event, paymentinfo)" >
+                        </div>
+                        <div>
+                            <i class="fa mx-[20px]">&#xf09d;</i>
+                        </div>
+                        <div>
+                            <p>Banking</p>
+                        </div>
+                    </div>
+                    <div [hidden]="!showBankingInfo" id="BankingInfo" >
+                        <p>Please scan the following payment code to pay for your order. Please write the transfer content as Name - Order code</p>
+                        <img src="../../assets/image/Screenshot 2023-12-18 153407.png" alt="">
+                        <p>Once your order has been paid, we will update. If there are any errors please contact us<br> - Hotline: 12345679<br> - Email: Rhymthmix@gmail.com</p>
+                    </div>
+                    <tr>
+                        <td colspan="3">
+                            <a routerLink="/ord-complete-page">
+                                <button (click)="postPayment()"   class="bg-red-800 p-[10px] rounded-full w-full text-[30px] hover:text-white hover:bg-black mt-[20px]">
+                                    <b> CHECK OUT</b>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
                     </table>
                 </form>
-                   </div>
+            </div>
             </div>
         </div>
     </div>

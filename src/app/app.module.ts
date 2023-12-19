@@ -26,6 +26,8 @@ import { AccInfoComponent } from './account/acc-info/acc-info.component';
 import { OrdCompletePageComponent } from './ord-complete-page/ord-complete-page.component';
 import { ProductinfoComponent } from './productinfo/productinfo.component';
 import { AllblogComponent } from './allblog/allblog.component';
+import { AdminCreateNewComponent } from './admin-create-new/admin-create-new.component';
+import { TestcartComponent } from './testcart/testcart.component';
 
 
 
@@ -53,7 +55,9 @@ import { AllblogComponent } from './allblog/allblog.component';
     PaymentComponent,
     SignupComponent,
     ProductinfoComponent,
-    AllblogComponent
+    AllblogComponent,
+    AdminCreateNewComponent,
+    TestcartComponent
  
 
   ],

@@ -21,8 +21,8 @@
           <span *ngIf="registerForm.hasError('required','password') && registerForm.controls['password'].dirty" class="text-red-500 float-left text-xs">*Password is required</span> <br>
         </div>
         <div>
-          <p><label for="password" class="mb-2 text-sm float-left pl-1 font-semibold">Confirm password</label></p>
-          <input formControlName="confirmPassword" type="password" id="password" class="flex items-center w-full px-5 py-4 mb-1 mr-2 text-sm font-medium outline-none rounded-3xl bg-[#D9D9D9]" placeholder="Re-enter your Password">
+          <p><label for="confirmpassword" class="mb-2 text-sm float-left pl-1 font-semibold">Confirm password</label></p>
+          <input formControlName="confirmPassword" type="password" id="confirmpassword" class="flex items-center w-full px-5 py-4 mb-1 mr-2 text-sm font-medium outline-none rounded-3xl bg-[#D9D9D9]" placeholder="Re-enter your Password">
           <span *ngIf="registerForm.hasError('required','confirmPassword') && registerForm.controls['confirmPassword'].dirty" class="text-red-500 float-left text-xs">*Confirm password is required</span>
           <span *ngIf="registerForm.hasError('confirmPasswordValidator','confirmPassword')" class="text-red-500 float-left text-xs">*Password didn't match</span> <br>
 

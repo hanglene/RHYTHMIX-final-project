@@ -104,29 +104,29 @@
             </div>
             <div class="h-[30px] top-0 left-[2%] w-2vw absolute text-center text-white text-xs font-bold leading-none bg-red-900 rounded-t-[6px]" style="clip-path: polygon(100% 43.8%, 100% 100%, 50.49% 59.8%, 0% 100%, 0% 43.8%, 0% 0%, 100% 0%); z-index: 3;">
 
-              <p class="text-[15px] mt-[2px]">{{p.Promotion}}</p>
-            </div>
+            <p class="text-[15px] mt-[2px]">{{p.Promotion}}</p>
           </div>
-          <br>
-        </a>
-        <div class="h-[72px]" id="Content">
-          <div class="h-[48px]" id="Ten">
-         <p class="w-full text-center">
-           {{p. Artist}} - {{p.Name}} - {{p.category}}
-         </p>
         </div>
-        <div>
-          <span class="text-[#CE0001] text-[14px]"><b>{{p.CurrentPrice}} VND</b></span>   &nbsp;  <del class="text-[12px] opacity-[50%]"> {{p.UnitPrice}} </del>    
-         </div>
-        </div>
-         <form action="#" method="post" class="Addcart  w-full bottom-100 left-0 p-4 rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-          <input type="hidden" name="id" id="#">
-          <button (click)="addtoCart(p)" type="submit" name="add" class="w-full border-2 border-black rounded-full font-semibold h-10 hover:bg-black hover:text-white text-[0.8vw]">
-            Add To Cart
-          </button>
-        </form>
+        <br>
+      </a>
+       <p class="w-full text-center">
+         {{p. Content}}
+       </p>
+       <div>
+        <span class="text-[#CE0001] text-[14px]"><b>{{p.CurrentPrice  }} VND</b></span>   &nbsp;  <del class="text-[12px] opacity-[50%]"> {{p.Price}} </del>    
        </div>
-    </div>
+       <div>
+ 
+       </div>
+       <form action="#" method="post" class="Addcart  w-full bottom-100 left-0  p-4 rounded-lg transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+         <input type="hidden" name="id" id="#">
+         <button type="submit" name="add" class="w-full border-2 border-black rounded-full font-semibold h-10 hover:bg-black hover:text-white text-[0.8vw]">
+           Add To Cart
+         </button>
+       </form>
+       
+     </div>
+ 
   </div>
  
   <button class="slidebutton"  id='next-slide'>

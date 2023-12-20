@@ -46,3 +46,17 @@
   font-size: 8px;
 }
 
+.cart_icon{
+    position: relative;
+}
+.cart_value{
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 60%;
+    padding: 2px 5px;
+    font-weight:800;
+    font-size: 8px;
+}

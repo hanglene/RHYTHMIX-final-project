@@ -16,6 +16,9 @@ import { Product } from 'src/INTERFACE/Product-infor';
 export class HomepageComponent implements OnInit {
   productcart: Product[]=[];
   products: any;
+  productcart: Product[]=[];
+  // Danh sách sản phẩm trong giỏ hàng
+
   //set title of page
   constructor(private _service:  ProdcutAPIService, private titleService: Title, private addtocartservice:CartService) {
     this.titleService.setTitle("Homepage - Rhythmix"); 
@@ -105,9 +108,13 @@ export class HomepageComponent implements OnInit {
       DSN.addEventListener("scroll", handleSlideButtonsDSN);
     }
   }
+
+
+  
   
  
   ngOnInit(): void {
+  
     window.addEventListener("load", this.initSlider.bind(this));
     window.addEventListener("load", () => {
       this.initSlider();

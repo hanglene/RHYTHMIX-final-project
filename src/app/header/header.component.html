@@ -50,13 +50,18 @@
       </div>
     </nav>
   </div>
-    <div class="flex items-center  relative" id="User">
-        <p class="font-bold" >
-            <a href="#" routerLink="/account"><i class="fas fa-user-circle ml-[1.75rem] mr-[1.75rem] hover:text-[#ECE4E3] "></i></a>
-            <span class="mr-[10px]"><a href="#" routerLink="/login" class="hover:text-[#ECE4E3] ">Login</a></span> |
-            <span class="ml-[10px]"><a href="#" routerLink="/signup" class="hover:text-[#ECE4E3]">Sign up</a></span>
-        </p>
-    </div>
+  <div class="flex items-center ">
+    <p class="font-bold pl-3" *ngIf="!authenticated">
+        <span class="mr-[10px]"><a routerLink="/login" class="hover:text-[#ECE4E3] ">Login</a></span> |
+        <span class="ml-[10px]"><a routerLink="/signup" class="hover:text-[#ECE4E3]">Sign up</a></span>
+    </p>
+
+    <p class="font-bold" *ngIf="authenticated">
+      <a href="#" routerLink="/account"><i class="fas fa-user-circle ml-[1.75rem] mr-[1.75rem] hover:text-[#ECE4E3] "></i></a>
+      <span class="mr-[10px]"><a routerLink="/" (click)="logout()" class="hover:text-[#ECE4E3] ">Logout</a></span> 
+  </p>
+</div>
+
   <div class="flex items-center absolute top-[10px] ">
     <div class="relative">
       <p class="font-bold">

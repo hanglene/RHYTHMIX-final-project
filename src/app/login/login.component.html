@@ -1,51 +1,49 @@
 <form [formGroup]="loginForm">
-<div class="bg-BG flex items-center justify-center w-full lg:p-12">
-    <div class="p-2.5 pt-5 bg-[#f8f8f89c] w-10/12 rounded-xl text-center shadow-2xl border">
-      <h1 class="text-4xl text-[#333] font-bold mb-5">Login</h1>
-      <p class="pb-5" >Welcome back! Please log in to access your account</p>
-
-      <div>
-        <p><label for="email" class="mb-2 text-sm float-left pl-1 font-semibold">Email</label></p>
-        <input formControlName="email" type="email" id="email" class="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none mb-1 rounded-3xl bg-[#D9D9D9]" placeholder="Enter your Email">
-        <span *ngIf="loginForm.hasError('required','email') && loginForm.controls['email'].dirty" class="text-red-500 float-left text-xs">*Email is required</span>
-        <span *ngIf="loginForm.hasError('email','email')" class="text-red-500 float-left text-xs">*Email is invalid</span> <br>
-      </div>
-
-      <div>
-        <p><label for="password" class="mb-2 text-sm float-left pl-1 font-semibold">Password</label></p>
-        <input formControlName="password" type="password" id="password" class="flex items-center w-full px-5 py-4 mb-1 mr-2 text-sm font-medium outline-none rounded-3xl bg-[#D9D9D9]" placeholder="Enter your Password">
-        <span *ngIf="loginForm.hasError('required','password') && loginForm.controls['password'].dirty" class="text-red-500 float-left text-xs">*Password is required</span> <br>
-      </div>
-
-
-      <div class="flex  justify-between mb-5">
-        <label class="relative inline-flex items-center mr-2 pl-1">
-            <input type="checkbox" class="pl-1"><span class="ml-1 text-sm font-normal">Remember Me</span>
-        </label>
-        <a href="/" class="mr-4 text-sm hover:text-[#D02007]">Forget Password?</a>
-      </div>
-
-      <button [disabled]="loginForm.invalid" [class.disabled]="loginForm.invalid" (click)="login()" class="w-full py-3 font-medium text-white bg-[#D02007] hover:bg-[#d25747] rounded-lg  hover:shadow  items-center justify-center mb-5">
-        Login
-      </button>
-
-      <div class="flex items-center mb-5">
-        <hr class="h-0 border-b border-solid border-grey-500 grow">
-        <p class="mx-4">OR</p>
-        <hr class="border-b border-solid  grow">
-      </div>
-
-      <!-- Button Google Login -->
-      <div class="my-5">
-        <button class="w-full text-center py-3 my-3 border flex space-x-2 items-center justify-center border-slate-300 rounded-lg hover:border-[#D02007]">
-            <img src="https://www.svgrepo.com/show/355037/google.svg" class="w-6 h-6 text-sm" alt=""> <span>Login with Google</span>
+  <div class="bg-BG flex items-center justify-center w-full lg:p-12">
+      <div class="p-2.5 pt-5 bg-[#f8f8f89c] w-10/12 rounded-xl text-center shadow-2xl border">
+        <h1 class="text-4xl text-[#333] font-bold mb-5">Login</h1>
+        <p class="pb-5" >Welcome back! Please log in to access your account</p>
+  
+        <div>
+          <p><label for="email" class="mb-2 text-sm float-left pl-1 font-semibold">Email</label></p>
+          <input formControlName="email" type="email" id="email" class="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none mb-1 rounded-3xl bg-[#D9D9D9]" placeholder="Enter your Email">
+        </div>
+  
+        <div>
+          <p><label for="password" class="mb-2 text-sm float-left pl-1 font-semibold">Password</label></p>
+          <input formControlName="password" type="password" id="password" class="flex items-center w-full px-5 py-4 mb-1 mr-2 text-sm font-medium outline-none rounded-3xl bg-[#D9D9D9]" placeholder="Enter your Password">
+        </div>
+  
+  
+        <div class="flex  justify-between mb-5">
+          <label class="relative inline-flex items-center mr-2 pl-1">
+              <input type="checkbox" class="pl-1"><span class="ml-1 text-sm font-normal">Remember Me</span>
+          </label>
+          <a href="/" class="mr-4 text-sm hover:text-[#D02007]">Forget Password?</a>
+        </div>
+  
+        <button [disabled]="loginForm.invalid" [class.disabled]="loginForm.invalid" (click)="login()" class="w-full py-3 font-medium text-white bg-[#D02007] hover:bg-[#d25747] rounded-lg  hover:shadow  items-center justify-center mb-5">
+          Login
         </button>
+  
+        <div class="flex items-center mb-5">
+          <hr class="h-0 border-b border-solid border-grey-500 grow">
+          <p class="mx-4">OR</p>
+          <hr class="border-b border-solid  grow">
+        </div>
+  
+        <!-- Button Google Login -->
+        <div class="my-5">
+          <button class="w-full text-center py-3 my-3 border flex space-x-2 items-center justify-center border-slate-300 rounded-lg hover:border-[#D02007]">
+              <img src="https://www.svgrepo.com/show/355037/google.svg" class="w-6 h-6 text-sm" alt=""> <span>Login with Google</span>
+          </button>
+      </div>
+  
+        <p class="mb-3">
+          <span class="text-sm">Don't have an account?</span>
+          &nbsp;<a routerLink="/signup" class="hover:text-[#D02007] text-sm">Sign up</a>
+        </p>
+      </div>
     </div>
-
-      <p class="mb-3">
-        <span class="text-sm">Don't have an account?</span>
-        &nbsp;<a routerLink="/signup" class="hover:text-[#D02007] text-sm">Sign up</a>
-      </p>
-    </div>
-  </div>
-</form>
+  </form>
+  

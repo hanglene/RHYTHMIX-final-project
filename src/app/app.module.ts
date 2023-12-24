@@ -28,6 +28,8 @@ import { ProductinfoComponent } from './productinfo/productinfo.component';
 import { AllblogComponent } from './allblog/allblog.component';
 import { AdminCreateNewComponent } from './admin-create-new/admin-create-new.component';
 import { TestcartComponent } from './testcart/testcart.component';
+import { ForgetPwComponent } from './forget-pw/forget-pw.component';
+import { ResetComponent } from './reset/reset.component';
 
 
 
@@ -57,7 +59,9 @@ import { TestcartComponent } from './testcart/testcart.component';
     ProductinfoComponent,
     AllblogComponent,
     AdminCreateNewComponent,
-    TestcartComponent
+    TestcartComponent,
+    ForgetPwComponent,
+    ResetComponent
  
 
   ],

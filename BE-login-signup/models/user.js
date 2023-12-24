@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     admin: {
         type: Boolean,
         default: false, //khi được tạo đều không phải admin
-    },
+    }
     
 }, { timestamps: true } // user được tạo và update khi nào
 

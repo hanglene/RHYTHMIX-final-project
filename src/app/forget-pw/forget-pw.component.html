@@ -1,0 +1,24 @@
+<form [formGroup]="forgetForm">
+    <div class="bg-BG flex items-center justify-center w-full lg:p-12">
+        <div class="p-2.5 pt-5 bg-[#f8f8f89c] w-10/12 rounded-xl text-center shadow-2xl border">
+          <h1 class="text-4xl text-[#333] font-bold mb-5">Forget password</h1>
+          <p class="pb-5" >Please enter your email to reset your password</p>
+    
+          <div>
+            <p><label for="email" class="mb-2 text-sm float-left pl-1 font-semibold pb">Email</label></p>
+            <input formControlName="email" type="email" id="email" class="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none mb-1 rounded-3xl bg-[#D9D9D9]" placeholder="Enter your Email">
+            <span *ngIf="forgetForm.hasError('required', 'email') && forgetForm.controls['email'].dirty" class="text-red-500">Email is required</span>
+            <span *ngIf="forgetForm.hasError('email','email')" class="text-red-500">Email is invalid</span>
+          </div>
+          
+          <button (click)="submit()" class=" float-left w-2/5 py-3 font-medium text-white bg-[#D02007] hover:bg-[#d25747] rounded-3xl  hover:shadow  items-center justify-center mb-5 mt-2 ">
+            Submit
+          </button>
+
+          <button routerLink="/login" class=" float-right w-2/5 py-3 font-medium text-white bg-[#7e7c7c] hover:bg-[#d25747] rounded-3xl  hover:shadow  items-center justify-center mb-5 mt-2 ">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+    

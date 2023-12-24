@@ -14,6 +14,8 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { OrdCompletePageComponent } from './ord-complete-page/ord-complete-page.component';
 import { ProductinfoComponent } from './productinfo/productinfo.component';
 import { AllblogComponent } from './allblog/allblog.component';
+import { ForgetPwComponent } from './forget-pw/forget-pw.component';
+import { ResetComponent } from './reset/reset.component';
 
 
 
@@ -32,6 +34,8 @@ const routes: Routes = [
   {path: 'payment', component:PaymentComponent},
   {path: 'product-info', component:ProductinfoComponent},
   {path: 'all-blog', component: AllblogComponent},
+  {path: 'forget-pw', component: ForgetPwComponent},
+  {path: 'reset/:token', component: ResetComponent},
   // {path: '', component:},
   // {path: '*', component:},
 ];

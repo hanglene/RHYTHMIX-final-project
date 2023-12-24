@@ -19,10 +19,10 @@
           <label class="relative inline-flex items-center mr-2 pl-1">
               <input type="checkbox" class="pl-1"><span class="ml-1 text-sm font-normal">Remember Me</span>
           </label>
-          <a href="/" class="mr-4 text-sm hover:text-[#D02007]">Forget Password?</a>
+          <a routerLink="/forget-pw" class="mr-4 text-sm hover:text-[#D02007]">Forget Password?</a>
         </div>
   
-        <button [disabled]="loginForm.invalid" [class.disabled]="loginForm.invalid" (click)="login()" class="w-full py-3 font-medium text-white bg-[#D02007] hover:bg-[#d25747] rounded-lg  hover:shadow  items-center justify-center mb-5">
+        <button  (click)="login()" class="w-full py-3 font-medium text-white bg-[#D02007] hover:bg-[#d25747] rounded-3xl  hover:shadow  items-center justify-center mb-5">
           Login
         </button>
   

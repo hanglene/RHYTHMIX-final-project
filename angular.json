@@ -35,9 +35,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css"      
             ],
-            "scripts": []
+            "scripts": [
+        
+            ]
           },
           "configurations": {
             "production": {
@@ -94,12 +96,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/sweetalert2/dist/sweetalert2.css"
             ],
-            "scripts": []
+            "scripts": [
+
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "bb80bfc2-ad28-45b2-bb30-1da366add19e"
   }
 }

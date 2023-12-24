@@ -1,0 +1,48 @@
+{{ errMessage }}
+<h1 style="text-align: center">Detail fashion</h1>
+<table >
+  <tr>
+    <td class="bold">Fashion Id:</td>
+    <td style="width: 500px">
+      {{ products._id }}
+    </td>
+  </tr>
+  <tr>
+    <td class="bold">fashion Subject</td>
+    <td>
+      {{ products.Artist }}
+    </td>
+  </tr>
+  <tr>
+    <td class="bold">fashion style</td>
+    <td>
+      {{ products.Name }}
+    </td>
+  </tr>
+  <tr>
+    <td class="bold">Fashion detail</td>
+    <td>
+      {{ products.category }}
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center">
+      <img
+        src="{{ products.Image }}"
+        width="100px"
+        height="100px"
+        alt=""
+      />
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+  
+
+

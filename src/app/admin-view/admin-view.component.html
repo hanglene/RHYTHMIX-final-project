@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="w-full h-full bg-BG">
+  <div class="flex justify-end mr-[19.1%] mb-[50px] pt-[50px]">
+    <div class="border border-black flex">
+      <div class="h-20 bg-[#FFFFFF] flex flex-row">
+        <i class="fa fa-search self-center justify-self-start"></i>
+      </div>
+      <input type="text" [(ngModel)]="productName" placeholder="Enter product name" (input)="searchProduct()" class="input-focus">
+    </div>
+  </div>
+  <div class="mx-[25%] ">
+    <div class="flex flex-row bg-[#FFFFFF] mb-[50px] w-[1037px] " *ngFor="let p of products.slice(0, displayCount)">
+      <div class="w-[285px] h-[285px] justify-center">
+        <img src="{{p.Image}}" alt="" width="202px" height="202px" class="mt-[80px] ml-[31px] pr-[31px]">
+      </div>
+      <div class="bg-[#FFFFFF] w-full border-l">
+        <h1 class="text-black text-3xl font-semibold font-['Quicksand'] text-center">
+          {{p.Name}}
+        </h1>
+        <div class="grid grid-cols-2 ml-[30px]">
+          <div class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+            <p class="my-[10px]">Artist:</p>
+            <p class="my-[10px]">Price:</p>
+            <p class="my-[10px]">Album detail:</p>
+            <p class="my-[10px]">Category:</p>
+          </div>
+          <div class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+            <p class="my-[10px]">{{p.Artist}}</p>
+            <p class="my-[10px]">{{p.UnitPrice}}</p>
+            <p class="my-[10px]">{{p.Name}}</p>
+            <p class="my-[10px]">{{p.category}}</p>
+          </div>
+        </div>
+        <div class="flex flex-row justify-end mb-[10px] mr-[30px] gap-[30px] text-[30px]">
+          <button (click)="putProduct(p)">
+            <i class="fa fa-edit"></i>
+          </button>
+          <button (click)="deleteProduct(p._id)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center gap-[30px]">
+    <div class="w-72 h-20 bg-white border-2 border-neutral-500 flex justify-center">
+      <button (click)="loadMoreProducts()" class="w-48 text-black text-3xl font-bold font-['Inter']">Load more</button>
+    </div>
+    <div class="w-72 h-20 bg-white border-2 border-neutral-500 flex justify-center">
+      <button (click)="createProduct()" class="w-48 text-black text-3xl font-bold font-['Inter']">Create Product</button>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,79 @@
+<!-- <div *ngIf="paymentinfos && paymentinfos.length > 0">
+    <ul>
+      <li *ngFor="let paymentinfo of paymentinfos">
+        ID: {{ paymentinfo._id }}<br>
+        Customer Name: {{ paymentinfo.items.paymentInfo.Customer_Name }}<br>
+        Delivery Address: {{ paymentinfo.items.paymentInfo.Deliver_Address }}<br>
+        Phone Number: {{ paymentinfo.items.paymentInfo.Phone_Number }}<br>
+        Email: {{ paymentinfo.items.paymentInfo.Email }}<br>
+        Payment Method: {{ paymentinfo.items.paymentInfo.Payment_Method }}<br>
+        Shipping Method: {{ paymentinfo.items.paymentInfo.Shipping_Method }}<br>
+        <br>
+        Cart Items:<br>
+        <ul>
+          <li *ngFor="let cartItem of paymentinfo.items.cartInfo.items">
+            Artist: {{ cartItem.Artist }}<br>
+            Name: {{ cartItem.Name }}<br>
+            Category: {{ cartItem.category }}<br>
+            Amount: {{ cartItem.amount }}<br>
+            <br>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <div class="w-full h-full bg-BG">
+    <div class="flex justify-end mr-[19.1%] mb-[50px] pt-[50px]">
+      <div class="border border-black flex">
+        <div class="h-20 bg-[#FFFFFF] flex flex-row">
+          <i class="fa fa-search self-center justify-self-start"></i>
+        </div>
+        <input type="text" [(ngModel)]="CustPName" placeholder="Enter product name"  class="input-focus" (input)="searchPayment()">
+      </div>
+    </div>
+    <div class="mx-[25%]">
+      <div *ngIf="PaymentInfos && PaymentInfos.length > 0">
+        <div *ngFor="let paymentinfo of PaymentInfos.slice(0, displayCount)">
+          <div class="bg-white border-l border-black mb-5">
+            <div class="bg-[#757575] text-white text-3xl font-semibold font-['Quicksand'] leading-10 tracking-wider">
+              <h1>Order #{{ paymentinfo._id }}</h1>
+            </div>
+            <div class="grid grid-cols-2 ml-4">
+              <div class="my-4 text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+                <p class="my-2">Customer Name:</p>
+                <p class="my-2">Delivery Address:</p>
+                <p class="my-2">Phone Number:</p>
+                <p class="my-2">Email:</p>
+                <p class="my-2">Payment Method:</p>
+                <p class="my-2">Shipping Method:</p>
+                <p class="my-2">Status:</p>
+              </div>
+              <div class="my-4 text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+                <p class="my-2">{{ paymentinfo.items.paymentInfo.Customer_Name }}</p>
+                <p class="my-2">{{ paymentinfo.items.paymentInfo.Deliver_Address }}</p>
+                <p class="my-2">{{ paymentinfo.items.paymentInfo.Phone_Number }}</p>
+                <p class="my-2">{{ paymentinfo.items.paymentInfo.Email }}</p>
+                <p class="my-2">{{ paymentinfo.items.paymentInfo.Payment_Method }}</p>
+                <p class="my-2">{{ paymentinfo.items.paymentInfo.Shipping_Method }}</p>
+                <p class="my-2">{{ paymentinfo.status }}</p>
+              </div>
+            </div>
+            <div class="flex justify-end mb-2 mr-4 gap-2 text-3xl">
+              <button (click)="viewPayment(paymentinfo)"><i class="fa fa-edit"></i></button>
+              <button (click)="deletePayment(paymentinfo._id)"><i class="fa fa-trash"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center gap-[30px]">
+      <div class="w-72 h-20 bg-white border-2 border-neutral-500 flex justify-center">
+        <button  class="w-48 text-black text-3xl font-bold font-['Inter']" (click)=" loadMoreProducts()">Load more</button>
+      </div>
+  
+    </div>
+  </div>
+
+

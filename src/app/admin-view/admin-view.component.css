@@ -1,0 +1,25 @@
+/* styles.css */
+
+/* Định dạng viền cho bảng */
+
+
+  
+  /* Định dạng màu nền và màu chữ cho các phần tử */
+  .text-red {
+    color: red;
+  }
+  
+  .background-gray {
+    background-color: #f2f2f2;
+  }
+  .table-container {
+    max-height: 1000px; /* Đặt chiều cao tối đa cho container */
+    overflow-y: auto; /* Hiển thị thanh cuộn theo chiều dọc khi cần thiết */
+  }
+  /* CSS cho input */
+
+/* CSS cho input trong trạng thái focus */
+.input-focus:focus {
+  outline: none; /* Loại bỏ đường viền focus mặc định */
+  border: none; /* Loại bỏ border khi focus */
+}

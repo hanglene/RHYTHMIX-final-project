@@ -1,0 +1,44 @@
+<p>delte-product works!</p>
+<div >
+    <table class="border-2 border-collapse mt-[100px]">
+      <tr>
+        <td class="border-2 p-2">Name</td>
+        <td class="border-2 p-2">Unit Price</td>
+        <td class="border-2 p-2">Artist</td>
+        <td class="border-2 p-2">Image</td>
+        <td class="border-2 p-2">Name</td>
+        <td class="border-2 p-2">Unit Price</td>
+        <td class="border-2 p-2">Artist</td>
+        <td class="border-2 p-2">Image</td>
+        <td class="border-2 p-2">Artist</td>
+        <td class="border-2 p-2">Image</td>
+
+        <td>View Detail</td>
+      </tr>
+      <tbody>
+        <tr *ngFor="let p of products">
+            <td class="border-2 p-2">{{ p.Name }}</td>
+            <td class="border-2 p-2">{{ p.UnitPrice }}</td>
+            <td class="border-2 p-2">{{ p.Artist }}</td>
+            <td class="border-2 p-2">{{ p.category }}</td>
+            <td class="border-2 p-2">{{ p.Promotion }}</td>
+            <td class="border-2 p-2">{{ p.Status }}</td>
+            <td class="border-2 p-2">{{ p.Product_detail }}</td>
+            <td class="border-2 p-2">
+              <img src="{{ p.Image }}" width="100px" height="100px">
+            </td>
+            <td class="border-2 p-2">
+                <img src="{{ p.Image_1 }}" width="100px" height="100px">
+              </td>
+              <td class="border-2 p-2">
+                <img src="{{ p.Image_2 }}" width="100px" height="100px">
+              </td>
+
+            <td>
+              <button (click)="deleteProduct(p._id)">Delte</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

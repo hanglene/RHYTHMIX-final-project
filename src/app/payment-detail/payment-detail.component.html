@@ -1,0 +1,199 @@
+<div class="w-full h-full bg-BG">
+    <div class="mx-[25%] py-[30px]">
+      <div class="flex flex-row bg-[#FFFFFF] mb-[50px] w-[1037px]">
+        <div class="bg-[#FFFFFF] w-full border-l">
+          <h1 class="text-black text-3xl font-semibold font-['Quicksand'] text-center">
+            {{ payments._id }}
+          </h1>
+      
+        <table class="ml-[30px]">
+        <tr>
+        <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+            Customer Name:
+        </td>
+          <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+            <input
+              type="text"
+              class="form-control w-full px-4 py-2  rounded"
+              #name="ngModel"
+              name="Customer_Name"
+              id="Customer_Name"
+              placeholder="Customer_Name"
+              [(ngModel)]="payments.items.paymentInfo.Customer_Name" 
+              readonly
+            />
+          </td>
+        </tr>
+        <tr>
+          <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+            Deliver Address:
+          </td>
+          <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+            <input
+            class="form-control w-full px-4 py-2 rounded focus:border-pink-500"
+            name="Deliver_Address"
+            #name="ngModel"
+            id="Deliver_Address"
+            [(ngModel)]="payments.items.paymentInfo.Deliver_Address"
+            readonly
+          > 
+      </td>
+        </tr>
+        <tr>
+          <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+            Phone Number:
+          </td>
+          <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+            <input
+              type="text"
+              class="form-control w-full px-4 py-2  rounded "
+              name="Phone_Number"
+              id="Phone_Number"
+              placeholder="Phone_Number"
+              [(ngModel)]="payments.items.paymentInfo.Phone_Number"
+              readonly
+            />
+          </td>
+        </tr>
+        <tr>
+          <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+            Email:
+          </td>
+          <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+            <input
+              type="text"
+              class="form-control w-full px-4 py-2  rounded "
+              name="Email"
+              #name="ngModel"
+              id="Email"
+              placeholder="Email"
+              [(ngModel)]="payments.items.paymentInfo.Email "
+              readonly
+            />
+          </td>
+        </tr>
+        <tr>
+            <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+              Purchase Product
+            </td>
+            <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+              <ng-container *ngFor="let item of payments.items.cartInfo.items">
+                {{ item.Artist }} - {{ item.Name}} - {{item.category}} - {{item.amount}}
+                <br>
+              </ng-container>
+            </td>
+          </tr>
+        <tr>
+            <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+               Total:
+              </td>
+              <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+                {{ payments.items.paymentInfo.currentPrice.toLocaleString('vi-VN') }} VND              </td>
+        </tr>
+
+        <tr>
+            <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+              Status:
+            </td>
+            <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+                <select
+                class="form-control w-full px-4 py-2 rounded focus:border-pink-500"
+                name="Status"
+                [(ngModel)]="payments.status"
+              >
+                <option value="COMFIRM">COMFIRM</option>
+                <option value="REJECT">REJECT</option>
+                <option value="NOT YET COMFIRM">NOT YET COMFIRM</option>
+                <option value="SHIPPING">SHIPPING</option>
+              </select>
+            </td>
+          </tr>
+        <!-- <tr>
+          <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+            Product_detail:
+          </td>
+          <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          <textarea
+          class="form-control w-[500px] h-[500px]"
+          #name="ngModel"
+          name=" Product_detail"
+          id=" Product_detail"
+          [(ngModel)]="product.Product_detail"
+        ></textarea>
+      </td>
+        </tr>
+        <tr>
+          <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+            Status:
+          </td>
+          <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          <select
+          class="form-control w-full px-4 py-2 rounded focus:border-blue-500"
+          name="Status"
+          #name="ngModel"
+          id="Status"
+          [(ngModel)]="product.Status"
+        >
+        <option value="" disabled selected>Select Status</option>
+          <option value="TRENDING">TRENDING</option>
+          <option value="SALE">SALE</option>
+          <option value="NEW">NEW</option>
+        </select>
+      </td>
+        </tr>
+        <tr>
+          <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">Image:</td>
+          <td class="flex flex-col items-center gap-[20px]">
+            <div class="flex items-center">
+              <input
+                type="file"
+                class="file-input"
+                name="Image"
+                id="Image"
+                (change)="onFileSelected($event, product)"
+              />
+              <div *ngIf="product.Image" class="ml-2">
+                <img [src]="product.Image" alt="Selected Image"  width="200px" height="200px"/>
+              </div>
+            </div>
+            <div class="flex items-center ml-4">
+              <input
+              type="file"
+              class="file-input"
+              #name1="ngModel"
+              name="Image_1"
+              id="Image_1"
+              [(ngModel)]="product.Image_1"
+              (change)="onFileSelected1($event, product)"
+              />
+              <div *ngIf="product.Image_1" class="ml-2">
+                <img [src]="product.Image_1" alt="Selected Image" width="200px" height="200px"/>
+              </div>
+            </div>
+            <div class="flex items-center ml-4">
+              <input
+              type="file"
+              class="file-input"
+              #name2="ngModel"
+              name="Image_2"
+              id="Image_2"
+              [(ngModel)]="product.Image_2"
+              (change)="onFileSelected2($event, product)"    
+              />
+              <div *ngIf="product.Image_2" class="ml-2">
+                <img [src]="product.Image_2" alt="Selected Image" width="200px" height="200px"/>
+              </div>
+            </div>
+          </td>
+        </tr> -->
+        <tr>
+</table>
+            <div class="flex justify-center mt-[20px]">
+              <div class="w-72 h-20 bg-white border-2 border-neutral-500 flex justify-center">
+                <button (click)="putPayment()" class="w-48 text-black text-3xl font-bold font-['Inter']">Update</button>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

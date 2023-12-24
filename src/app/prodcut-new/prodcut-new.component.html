@@ -1,0 +1,183 @@
+<div class="w-full h-full bg-BG">
+  <div class="mx-[25%] py-[30px]">
+    <div class="flex flex-row bg-[#FFFFFF] mb-[50px] w-[1037px]">
+      <!-- <div class="w-[285px] h-[285px] flex justify-center items-center">
+        <div class="flex flex-col items-center">
+          <img src="{{ product.Image }}" alt="" width="202px" height="202px" class="mt-auto mb-auto">
+        </div>
+      </div> -->
+      <div class="bg-[#FFFFFF] w-full border-l my-[10px]">
+        <h1 class="text-black text-3xl font-semibold font-['Quicksand'] text-center">
+            CREATE NEW PRODUCT
+        </h1>
+      <table class="ml-[30px]">
+      <tr>
+        <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">Artist:</td>
+        <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          <input
+            type="text"
+            class="form-control w-full px-4 py-2  rounded"
+            #name="ngModel"
+            name="Artist"
+            id="Artist"
+            placeholder="Artist"
+            [(ngModel)]="product.Artist"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          Category:
+        </td>
+        <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          <select
+          class="form-control w-full px-4 py-2 rounded focus:border-pink-500"
+          name="category"
+          #name="ngModel"
+          id="category"
+          [(ngModel)]="product.category"
+        >
+          <option value="" disabled selected>Select Category</option>
+          <option value="CD">CD</option>
+          <option value="Cassette">Cassette</option>
+          <option value="Vinyl">Vinyl</option>
+        </select>
+
+    </td>
+      </tr>
+      <tr>
+        <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          Price:
+        </td>
+        <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          <input
+            type="text"
+            class="form-control w-full px-4 py-2  rounded "
+            name="Price"
+            id="Price"
+            placeholder="UnitPrice"
+            [(ngModel)]="product.UnitPrice"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          Name:
+        </td>
+        <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          <input
+            type="text"
+            class="form-control w-full px-4 py-2  rounded "
+            name="Name"
+            #name="ngModel"
+            id="Name"
+            placeholder="Name"
+            [(ngModel)]="product.Name"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          Promotion:
+        </td>
+        <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          <input
+            type="text"
+            class="form-control w-full px-4 py-2  rounded "
+            name="Promotion"
+            #name="ngModel"
+            id="Promotion"
+            placeholder="Promotion"
+            [(ngModel)]="product.Promotion"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          Product_detail:
+        </td>
+        <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+        <textarea
+        class="form-control w-[500px] h-[500px]"
+        #name="ngModel"
+        name=" Product_detail"
+        id=" Product_detail"
+        [(ngModel)]="product.Product_detail"
+      ></textarea>
+    </td>
+      </tr>
+      <tr>
+        <td class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          Status:
+        </td>
+        <td class="my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+        <select
+        class="form-control w-full px-4 py-2 rounded focus:border-blue-500"
+        name="Status"
+        #name="ngModel"
+        id="Status"
+        [(ngModel)]="product.Status"
+      >
+      <option value="" disabled selected>Select Status</option>
+        <option value="TRENDING">TRENDING</option>
+        <option value="SALE">SALE</option>
+        <option value="NEW">NEW</option>
+      </select>
+    </td>
+      </tr>
+      <tr>
+        <td  class="my-[30px] text-neutral-500 text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">Image:</td>
+        <td class="flex flex-col items-center gap-[20px] my-[30px] text-black text-xl font-semibold font-['Quicksand'] leading-loose tracking-wide">
+          <div class="flex items-center">
+            <input
+              type="file"
+              class="file-input"
+              name="Image"
+              id="Image"
+              (change)="onFileSelected($event, product)"
+            />
+            <div *ngIf="product.Image" class="ml-2">
+              <img [src]="product.Image" alt="Selected Image" width="200px" height="200px"/>
+            </div>
+          </div>
+          <div class="flex items-center ml-4">
+            <input
+            type="file"
+            class="file-input"
+            #name1="ngModel"
+            name="Image_1"
+            id="Image_1"
+            [(ngModel)]="product.Image_1"
+            (change)="onFileSelected1($event, product)"
+            />
+            <div *ngIf="product.Image_1" class="ml-2">
+              <img [src]="product.Image_1" alt="Selected Image" width="200px" height="200px" />
+            </div>
+          </div>
+          <div class="flex items-center ml-4">
+            <input
+            type="file"
+            class="file-input"
+            #name2="ngModel"
+            name="Image_2"
+            id="Image_2"
+            [(ngModel)]="product.Image_2"
+            (change)="onFileSelected2($event, product)"    
+            />
+            <div *ngIf="product.Image_2" class="ml-2">
+              <img [src]="product.Image_2" alt="Selected Image" width="200px" height="200px" />
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+          </table>
+          <div class="flex justify-center">
+            <div class="w-72 h-20 bg-white border-2 border-neutral-500 flex justify-center">
+              <button (click)="postProduct()" class="w-48 text-black text-3xl font-bold font-['Inter']">New</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

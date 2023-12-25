@@ -2,15 +2,20 @@ import { Component } from '@angular/core';
 import { Blog } from '../../INTERFACE/blog';
 import { AdminblogService } from '../../adminblog.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-createblog',
   templateUrl: './createblog.component.html',
   styleUrl: './createblog.component.css'
 })
 export class CreateblogComponent {
+
   blog = new Blog();
   errMessage: string = '';
-  constructor(private _service: AdminblogService, private router:Router) {}
+  
+  constructor(private _service: AdminblogService, private router:Router,) {
+  }
   public setFashion(b: Blog) {
     this.blog = b;
   }
@@ -38,5 +43,7 @@ export class CreateblogComponent {
     });
     this.router.navigate(['adminBlog'])
   }
+
+
 
 }

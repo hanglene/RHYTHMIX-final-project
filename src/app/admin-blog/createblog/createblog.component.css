@@ -1,0 +1,8 @@
+.ng-invalid input{
+    border: 5px solid #a94442; /* red */
+  }
+  .error {
+    padding: 12px;
+    background-color: rgba(255, 0, 0, 0.2);
+    color: red;
+  }

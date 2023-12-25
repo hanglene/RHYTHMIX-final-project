@@ -1,4 +1,5 @@
 <div class="font-Regular w-full h-full bg-BG">
+    <form #personForm="ngForm">
     <table class="mx-[25%]">
       <tr>
         <td>Blog title:</td>
@@ -11,6 +12,7 @@
             id="blog_title"
             placeholder="input title"
             [(ngModel)]="blog.title_big"
+            required
           />
         </td>
       </tr>
@@ -25,6 +27,7 @@
             id="date"
             placeholder="input Date"
             [(ngModel)]="blog.date"
+            required="required"
           />
         </td>
       </tr>
@@ -40,6 +43,7 @@
             id="blog_content"
             placeholder="Input Content"
             [(ngModel)]="blog.content"
+            required="required"
           >
         </td>
       </tr>
@@ -54,13 +58,15 @@
             id="blog_image"
             [(ngModel)]="blog.anh1"
             (change)="onFileSelected($event, blog)"
+            required="required"
           />
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <button class="button flex  hover:text-[#9D5C5C] py-3 text-sm text-black uppercase w-50 text-[30px] font-bold mx-[25%]" (click)="postBlog()">Submit</button>
+          <button type="submit" class="button flex  hover:text-[#9D5C5C] py-3 text-sm text-black uppercase w-50 text-[30px] font-bold mx-[25%]" (click)="postBlog()" [disabled]="!personForm.form.valid">Submit</button>
         </td>
       </tr>
     </table>
+</form>
     </div>

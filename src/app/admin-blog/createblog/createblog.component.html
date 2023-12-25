@@ -1,0 +1,66 @@
+<div class="font-Regular w-full h-full bg-BG">
+    <table class="mx-[25%]">
+      <tr>
+        <td>Blog title:</td>
+        <td>
+          <input
+            type="text"
+            class="form-control"
+            #name="ngModel"
+            name="blog_title"
+            id="blog_title"
+            placeholder="input title"
+            [(ngModel)]="blog.title_big"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Blog Date:</td>
+        <td>
+          <input
+            type="text"
+            class="form-control"
+            #name="ngModel"
+            name="date"
+            id="date"
+            placeholder="input Date"
+            [(ngModel)]="blog.date"
+          />
+        </td>
+      </tr>
+    
+      <tr>
+        <td>Blog content:</td>
+        <td>
+          
+          <input
+            class="form-control"
+            #name="ngModel"
+            name="blog_content"
+            id="blog_content"
+            placeholder="Input Content"
+            [(ngModel)]="blog.content"
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Blog Image:</td>
+        <td>
+          <input
+            type="file"
+            class="file-input"
+            #name="ngModel"
+            name="blog_image"
+            id="blog_image"
+            [(ngModel)]="blog.anh1"
+            (change)="onFileSelected($event, blog)"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button class="button flex  hover:text-[#9D5C5C] py-3 text-sm text-black uppercase w-50 text-[30px] font-bold mx-[25%]" (click)="postBlog()">Submit</button>
+        </td>
+      </tr>
+    </table>
+    </div>

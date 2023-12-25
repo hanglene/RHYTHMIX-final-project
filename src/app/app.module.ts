@@ -15,6 +15,9 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { PaymentAdminComponent } from './payment-admin/payment-admin.component';
 import { PaymentDetailComponent } from './payment-detail/payment-detail.component';
+import { AdminblogComponent } from './admin-blog/adminblog/adminblog.component';
+import { CreateblogComponent } from './admin-blog/createblog/createblog.component';
+import { BlogeditComponent } from './admin-blog/blogedit/blogedit.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { PaymentDetailComponent } from './payment-detail/payment-detail.componen
     HeaderComponent,
     PaymentAdminComponent,
     PaymentDetailComponent,
+    AdminblogComponent,
+    CreateblogComponent,
+    BlogeditComponent,
   ],
   imports: [
     BrowserModule,

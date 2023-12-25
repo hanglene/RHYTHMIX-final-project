@@ -1,0 +1,49 @@
+{{ errMessage }}
+<div class="font-Regular w-full h-full bg-BG">
+    
+  <div class="flex justify-end mr-[19.1%] mb-[50px] pt-[50px]">
+    <div class="border border-black flex">
+      <div class="h-10 bg-[#FFFFFF] flex flex-row">
+        <i class="fa fa-search self-center justify-self-start"></i>
+      </div>
+      <input type="text" placeholder="Enter blog title"  class="input-focus">
+    </div>
+  </div>
+  <button class="button flex  hover:text-[#9D5C5C] py-3 text-sm text-black uppercase w-50 text-[30px] font-bold mx-[25%]" (click)="createBlog()">
+    Create New blog &nbsp; <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M4.17645 5.23535H3.11763C2.556 5.23535 2.01737 5.45846 1.62024 5.85559C1.22311 6.25273 1 6.79135 1 7.35299V16.8823C1 17.444 1.22311 17.9826 1.62024 18.3797C2.01737 18.7769 2.556 19 3.11763 19H12.647C13.2086 19 13.7472 18.7769 14.1444 18.3797C14.5415 17.9826 14.7646 17.444 14.7646 16.8823V15.8235" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13.7059 3.11775L16.8824 6.2942M18.3488 4.79597C18.7658 4.37896 19.0001 3.81337 19.0001 3.22363C19.0001 2.63389 18.7658 2.0683 18.3488 1.65129C17.9318 1.23427 17.3662 1 16.7765 1C16.1867 1 15.6211 1.23427 15.2041 1.65129L6.29419 10.5295V13.7059H9.47064L18.3488 4.79597Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>  
+  </button>
+  <div *ngFor="let blog of blogs" class="flex flex-row bg-[#FFFFFF] mb-[50px] w-[1037px] mx-[25%]  " >
+    <div class="flex flex-row items-center py-8 justify-center ml-10">
+        <img src="{{ blog.anh1 }}" width="200" height="200"/>
+      <div class="order-last ml-10">
+        <strong class="text-3xl font-Header">{{ blog.title_big }}</strong>
+        <div class="justify text-xl text-justify py-2 pr-10 line-clamp-3">
+            Title: {{ blog.title_big }} <br>
+            Date: {{ blog.date }} <br>
+            Content:  {{ blog.content }}
+
+      </div>
+      <div class="flex float-right mr-5">
+        <button (click)="updateBlog(blog)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4.17645 5.23535H3.11763C2.556 5.23535 2.01737 5.45846 1.62024 5.85559C1.22311 6.25273 1 6.79135 1 7.35299V16.8823C1 17.444 1.22311 17.9826 1.62024 18.3797C2.01737 18.7769 2.556 19 3.11763 19H12.647C13.2086 19 13.7472 18.7769 14.1444 18.3797C14.5415 17.9826 14.7646 17.444 14.7646 16.8823V15.8235" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13.7059 3.11775L16.8824 6.2942M18.3488 4.79597C18.7658 4.37896 19.0001 3.81337 19.0001 3.22363C19.0001 2.63389 18.7658 2.0683 18.3488 1.65129C17.9318 1.23427 17.3662 1 16.7765 1C16.1867 1 15.6211 1.23427 15.2041 1.65129L6.29419 10.5295V13.7059H9.47064L18.3488 4.79597Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>                
+        </button>
+        <button (click)="deleteBlog(blog._id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 21C6.45 21 5.97933 20.8043 5.588 20.413C5.19667 20.0217 5.00067 19.5507 5 19V6H4V4H9V3H15V4H20V6H19V19C19 19.55 18.8043 20.021 18.413 20.413C18.0217 20.805 17.5507 21.0007 17 21H7ZM17 6H7V19H17V6ZM9 17H11V8H9V17ZM13 17H15V8H13V17Z" fill="black"/>
+                </svg>
+        </button>
+      </div>
+    </div>
+</div>
+</div>
+
+</div>
+
+
+

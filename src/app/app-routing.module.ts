@@ -14,9 +14,9 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { OrdCompletePageComponent } from './ord-complete-page/ord-complete-page.component';
 import { ProductinfoComponent } from './productinfo/productinfo.component';
 import { AllblogComponent } from './allblog/allblog.component';
-
-
-
+import { BlogeditComponent } from './adminblog/blogedit/blogedit.component';
+import { BlogComponent } from './adminblog/blog/blog.component';
+import { CreatenewblogComponent } from './adminblog/createnewblog/createnewblog.component';
 const routes: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'login', component: LoginComponent},
@@ -32,6 +32,9 @@ const routes: Routes = [
   {path: 'payment', component:PaymentComponent},
   {path: 'product-info', component:ProductinfoComponent},
   {path: 'all-blog', component: AllblogComponent},
+  {path: 'Update/:id', component: BlogeditComponent},
+  {path: 'adminBlog', component:BlogComponent},
+  {path: 'CreateBlog', component: CreatenewblogComponent}
   // {path: '', component:},
   // {path: '*', component:},
 ];

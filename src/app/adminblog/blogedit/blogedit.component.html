@@ -1,0 +1,81 @@
+<p>{{ errMessage }}</p>
+<div class="font-Regular w-full h-full bg-BG">
+<table class="table">
+  <tr>
+    <td>Blog Id:</td>
+    <td>
+      <input
+        type="text"
+        class="form-control"
+        name="BlogId"
+        id="BlogId"
+        placeholder="Input Blog Id"
+        [(ngModel)]="Blog._id"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>Blog Title:</td>
+    <td>
+      <input
+        type="text"
+        class="form-control"
+        #name="ngModel"
+        name="fashion_subject"
+        id="fashion_subject"
+        placeholder="input Subject"
+        [(ngModel)]="Blog.title_big"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>Blog date:</td>
+    <td>
+      <input
+        type="text"
+        class="form-control"
+        #name="ngModel"
+        name="date"
+        id="date"
+        placeholder="input date"
+        [(ngModel)]="Blog.date"
+      />
+    </td>
+  </tr>
+
+  <tr>
+    <td>Blog Content:</td>
+    <td>
+        <input
+          type="text"
+          #name="ngModel"
+          name="blog_content"
+          id="blog_content"
+          class="w-full h-full text-center leading-200"
+          placeholder="Input content"
+          [(ngModel)]="Blog.content"
+        />
+      </td>
+  </tr>
+  <tr>
+    <td>Blog Image:</td>
+    <td>
+      <input
+        type="file"
+        class="file-input"
+        #name="ngModel"
+        name="blog_image"
+        id="blog_image"
+        [(ngModel)]="Blog.anh1"
+        (change)="onFileSelected($event, Blog)"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <button class="button flex  hover:text-[#9D5C5C] py-3 text-sm text-black uppercase w-50 text-[30px] font-bold mx-[25%]" (click)="putBlog()">Submit</button>
+    </td>
+  </tr>
+</table>
+</div>
+

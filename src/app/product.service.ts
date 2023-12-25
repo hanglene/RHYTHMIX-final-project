@@ -8,7 +8,7 @@ import { catchError, map, Observable, retry, throwError } from 'rxjs';
 })
 export class ProductService {
   constructor(private _http: HttpClient) { }
-  private apiURL = 'http://localhost:8001';
+  private apiURL = 'http://localhost:3002';
   getProducts(): Observable<Product[]> {
     const headers = new HttpHeaders().set("Content-Type", "application/json");
     const requestOptions: Object = {

@@ -16,7 +16,7 @@ import { Product } from 'src/INTERFACE/Product-infor';
 export class HomepageComponent implements OnInit {
   productcart: Product[]=[];
   products: any;
-  productcart: Product[]=[];
+
   // Danh sách sản phẩm trong giỏ hàng
 
   //set title of page

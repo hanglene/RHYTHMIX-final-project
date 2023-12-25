@@ -28,6 +28,10 @@ import { ProductinfoComponent } from './productinfo/productinfo.component';
 import { AllblogComponent } from './allblog/allblog.component';
 import { AdminCreateNewComponent } from './admin-create-new/admin-create-new.component';
 import { TestcartComponent } from './testcart/testcart.component';
+import { BlogComponent } from './adminblog/blog/blog.component';
+import { BlogeditComponent } from './adminblog/blogedit/blogedit.component';
+import { BlogdeleteComponent } from './adminblog/blogdelete/blogdelete.component';
+import { CreatenewblogComponent } from './adminblog/createnewblog/createnewblog.component';
 
 
 
@@ -57,7 +61,11 @@ import { TestcartComponent } from './testcart/testcart.component';
     ProductinfoComponent,
     AllblogComponent,
     AdminCreateNewComponent,
-    TestcartComponent
+    TestcartComponent,
+    BlogComponent,
+    BlogeditComponent,
+    BlogdeleteComponent,
+    CreatenewblogComponent
  
 
   ],

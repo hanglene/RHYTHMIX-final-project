@@ -1,15 +1,9 @@
-<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { ProdcutAPIService } from '../prodcut-api.service';
 import { Product } from 'src/INTERFACE/Product-infor';
 import { Subscription } from 'rxjs';
 import { CartService } from '../cart.service';
 
-=======
-import { Component } from '@angular/core';
-import { CartService } from '../cart.service';
-import { Cart } from '../cart';
->>>>>>> 9c83395a0d810e3be2d049c20f47656dd29487a6
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

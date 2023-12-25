@@ -67,9 +67,17 @@ const login = async (req, res) => {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
     });
-    res.send({
-      message: "Success",
-    });
+    if (user.admin) {
+      res.send({
+        message: "Admin login success",
+        isAdmin: true,
+      });
+    } else {
+      res.send({
+        message: "User login success",
+        isAdmin: false,
+      });
+    }
   } catch (error) {
     console.error(error);
     res.status(500).send({
@@ -77,6 +85,7 @@ const login = async (req, res) => {
     });
   }
 };
+
 
 const getUser = async (req, res) => {
   try {

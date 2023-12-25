@@ -1,62 +1,31 @@
 <form [formGroup] ="registerForm">
-<div class="bg-BG flex items-center justify-center w-full lg:p-12">
-    <div class="p-2.5 pt-5 bg-[#f8f8f89c] w-10/12 rounded-xl text-center shadow-2xl border">
-      <h1 class="text-4xl text-[#333333] font-bold mb-5">Sign Up</h1>
-      <p class="pb-5" >Create an account to unlock exclusive features</p>
-
+  <div class="bg-BG flex items-center justify-center w-full lg:p-12">
+      <div class="p-2.5 pt-5 bg-[#f8f8f89c] w-10/12 rounded-xl text-center shadow-2xl border">
+        <h1 class="text-4xl text-[#333333] font-bold mb-5">Sign Up</h1>
+        <p class="pb-5" >Create an account to unlock exclusive features</p>
+  
         <div>
           <p><label for="fullname" class="mb-2 text-sm float-left pl-1 font-semibold">Full Name</label></p>
           <input formControlName="fullName" type="text" id="fullname" class="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none mb-1 rounded-3xl bg-[#D9D9D9]" placeholder="Enter your Full Name">
-          <span *ngIf="registerForm.hasError('required','fullName') && registerForm.controls['fullName'].dirty" class="text-red-500 float-left text-xs">*Full name is required</span> <br>
-        </div>
-        <div>
+      </div>
+      <div>
           <p><label for="email" class="mb-2 text-sm float-left pl-1 font-semibold">Email</label></p>
           <input formControlName="email" type="email" id="email" class="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none mb-1 rounded-3xl bg-[#D9D9D9]" placeholder="Enter your Email">
-          <span *ngIf="registerForm.hasError('required','email') && registerForm.controls['email'].dirty" class="text-red-500 float-left text-xs">*Email is required</span>
-          <span *ngIf="registerForm.hasError('email','email')" class="text-red-500 float-left text-xs">*Email is invalid</span> <br>
-        </div>
-        <div>
+      </div>
+      <div class="pb-3">
           <p><label for="password" class="mb-2 text-sm float-left pl-1 font-semibold">Password</label></p>
           <input formControlName="password" type="password" id="password" class="flex items-center w-full px-5 py-4 mb-1 mr-2 text-sm font-medium outline-none rounded-3xl bg-[#D9D9D9]" placeholder="Enter your Password">
-          <span *ngIf="registerForm.hasError('required','password') && registerForm.controls['password'].dirty" class="text-red-500 float-left text-xs">*Password is required</span> <br>
-        </div>
-        <div>
-          <p><label for="confirmpassword" class="mb-2 text-sm float-left pl-1 font-semibold">Confirm password</label></p>
-          <input formControlName="confirmPassword" type="password" id="confirmpassword" class="flex items-center w-full px-5 py-4 mb-1 mr-2 text-sm font-medium outline-none rounded-3xl bg-[#D9D9D9]" placeholder="Re-enter your Password">
-          <span *ngIf="registerForm.hasError('required','confirmPassword') && registerForm.controls['confirmPassword'].dirty" class="text-red-500 float-left text-xs">*Confirm password is required</span>
-          <span *ngIf="registerForm.hasError('confirmPasswordValidator','confirmPassword')" class="text-red-500 float-left text-xs">*Password didn't match</span> <br>
-
-        </div>
-    
-      <div class="flex  justify-between mb-5">
-        <label class="relative inline-flex items-center mr-2 pl-1">
-            <input type="checkbox" class="pl-1"><span class="ml-1 text-sm font-normal">I agree with Terms of use and Privacy Policy</span>
-        </label>
       </div>
-
-      <button [disabled]="registerForm.invalid" [class.disabled]="registerForm.invalid" (click)="register()" class="w-full py-3 font-medium text-white bg-[#D02007] hover:bg-[#d25747] rounded-3xl  hover:shadow  items-center justify-center mb-5 ">
+      <button (click)="register()" class="w-full py-3 font-medium text-white bg-[#D02007] hover:bg-[#d25747] rounded-3xl  hover:shadow  items-center justify-center mb-5 ">
         Sign up
       </button>
-      
+        
 
-      <div class="flex items-center mb-5">
-        <hr class="h-0 border-b border-solid border-grey-500 grow">
-        <p class="mx-4">OR</p>
-        <hr class="border-b border-solid  grow">
+        <p class="mb-3">
+          <span class="text-sm">Already have an account?</span>
+          &nbsp;<a routerLink="/login" class="hover:text-[#D02007] text-sm">Login</a>
+        </p>
+    
       </div>
-
-      <!-- Button Google Login -->
-      <div class="my-5">
-        <button class="w-full text-center py-3 my-3 border flex space-x-2 items-center justify-center border-slate-300 rounded-3xl hover:border-[#D02007]">
-            <img src="https://www.svgrepo.com/show/355037/google.svg" class="w-6 h-6 text-sm" alt=""> <span>Sign up with Google</span>
-        </button>
-    </div>
-
-      <p class="mb-3">
-        <span class="text-sm">Already have an account?</span>
-        &nbsp;<a routerLink="/login" class="hover:text-[#D02007] text-sm">Login</a>
-      </p>
-  
-    </div>
-  </div>  
-</form>
+    </div>  
+  </form>

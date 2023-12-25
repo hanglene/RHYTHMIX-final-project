@@ -5,7 +5,8 @@ import { ProdcutAPIService } from '../prodcut-api.service';
 import { Cart } from 'src/INTERFACE/cart';
 import { CartService } from '../cart.service';
 import { Product } from 'src/INTERFACE/Product-infor';
-
+import { Emitters } from '../emitters/emitter';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -14,13 +15,19 @@ import { Product } from 'src/INTERFACE/Product-infor';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
+  message = '';
   productcart: Product[]=[];
   products: any;
 
   // Danh sách sản phẩm trong giỏ hàng
 
   //set title of page
-  constructor(private _service:  ProdcutAPIService, private titleService: Title, private addtocartservice:CartService) {
+  constructor(
+    private _service:  ProdcutAPIService, 
+    private titleService: Title, 
+    private addtocartservice:CartService,
+    private http: HttpClient
+    ) {
     this.titleService.setTitle("Homepage - Rhythmix"); 
   
     this._service.getProdcut().pipe(
@@ -120,6 +127,19 @@ export class HomepageComponent implements OnInit {
       this.initSlider();
 
     });
+    
+    this.http
+      .get('http://localhost:8080/api/user', { withCredentials:true })
+      .subscribe(
+        (res: any) => {
+          this.message = `Hi ${res.fullName}`;
+          Emitters.authEmitter.emit(true)
+        },
+        (err) => {
+          this.message = ""
+          Emitters.authEmitter.emit(false)
+        }
+      )
     
   }
   addtoCart(product: Product) {

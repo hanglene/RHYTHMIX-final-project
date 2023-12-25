@@ -17,6 +17,11 @@ import { AllblogComponent } from './allblog/allblog.component';
 import { BlogeditComponent } from './adminblog/blogedit/blogedit.component';
 import { BlogComponent } from './adminblog/blog/blog.component';
 import { CreatenewblogComponent } from './adminblog/createnewblog/createnewblog.component';
+import { ForgetPwComponent } from './forget-pw/forget-pw.component';
+import { ResetComponent } from './reset/reset.component';
+
+
+
 const routes: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'login', component: LoginComponent},
@@ -35,6 +40,8 @@ const routes: Routes = [
   {path: 'Update/:id', component: BlogeditComponent},
   {path: 'adminBlog', component:BlogComponent},
   {path: 'CreateBlog', component: CreatenewblogComponent}
+  {path: 'forget-pw', component: ForgetPwComponent},
+  {path: 'reset/:token', component: ResetComponent},
   // {path: '', component:},
   // {path: '*', component:},
 ];

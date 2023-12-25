@@ -32,6 +32,8 @@ import { BlogComponent } from './adminblog/blog/blog.component';
 import { BlogeditComponent } from './adminblog/blogedit/blogedit.component';
 import { BlogdeleteComponent } from './adminblog/blogdelete/blogdelete.component';
 import { CreatenewblogComponent } from './adminblog/createnewblog/createnewblog.component';
+import { ForgetPwComponent } from './forget-pw/forget-pw.component';
+import { ResetComponent } from './reset/reset.component';
 
 
 
@@ -65,7 +67,9 @@ import { CreatenewblogComponent } from './adminblog/createnewblog/createnewblog.
     BlogComponent,
     BlogeditComponent,
     BlogdeleteComponent,
-    CreatenewblogComponent
+    CreatenewblogComponent,
+    ForgetPwComponent,
+    ResetComponent
  
 
   ],

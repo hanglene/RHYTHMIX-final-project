@@ -7,6 +7,7 @@ import { Product } from 'src/INTERFACE/Product-infor';
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { PaymentInfo, discountInfo } from 'src/INTERFACE/Payment';
 import { PaymentServiceService } from '../payment-service.service';
+import { Router } from '@angular/router';
 
 
 
@@ -92,7 +93,12 @@ export class PaymentComponent implements OnInit {
   discountinfo = new discountInfo()
   products: any;
   //set title of page
-  constructor(private _service:  ProdcutAPIService, private titleService: Title,  private cartservice:CartService, private paymentservice:PaymentServiceService) {
+  constructor(
+    private _service:  ProdcutAPIService, 
+    private titleService: Title,  
+    private cartservice:CartService, 
+    private paymentservice:PaymentServiceService,
+    private routerr: Router) {
     this.titleService.setTitle("Payment - Rhythmix"); 
     this._service.getProdcut().subscribe((data: Product[]) => {
       this.products = data;
@@ -225,6 +231,9 @@ PaymentInfoForm !: FormGroup;
 
 CustomerForm(){
   console.log(this.CustomerInfoForm.value)
+}
+navigateToOrderCompletePage(): void {
+  this.routerr.navigate(['ord-complete-page', this.paymentservice.customerInfo]);
 }
 }
 

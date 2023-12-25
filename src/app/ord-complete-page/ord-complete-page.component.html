@@ -1,3 +1,5 @@
+<!-- ord-complete-page.component.html -->
+
 <div class="bg-BG">
     <div class="flex items-center justify-center w-full lg:p-12">
         <div class="p-2.5 pt-5 bg-[#f8f8f89c] w-4/6 rounded-xl text-center relative">
@@ -7,25 +9,23 @@
                 <h1 class="text-2xl pb-5 pt-4">YOUR ORDER IS COMPLETED</h1>
             </div>
 
-            <div class="flex">
-                <p class="text-[#8C8C8D] mr-2 pl-8">Customer Name:</p>
-                <div>Stupid Cat</div>
-            </div>
-            <div class="flex pt-4">
-                <p class="text-[#8C8C8D] pl-8 mr-2">Deliver Address:</p>
-                <div class="pl-1">No. 669 National Highway 1, Quarter 3, Linh Xuan Ward, Thu Duc, Ho Chi Minh City.</div>
-            </div>
-            <div class="flex pt-4">
-                <p class="text-[#8C8C8D] pl-8 mr-2">Phone Number:</p>
-                <div class="pl-1.5">xxxx-xxx-xxx</div>
-            </div>
-            <div class="flex pt-4">
-                <p class="text-[#8C8C8D] pl-8 mr-2">Order Number:</p>
-                <div class="pl-2.5">xxx xxx</div>
-            </div>
-            <div class="flex pt-4 mb-5 ">
-                <p class="text-[#8C8C8D] pl-8 mr-2">Delivery Date:</p>
-                <div class="pl-5">xx/xx/xxxx</div>
+            <div *ngIf="customerInfo">
+                <div class="flex pt-4">
+                    <p class="text-[#8C8C8D] mr-2 pl-8">Customer Name:</p>
+                    <div>{{ customerInfo.CustomerName }}</div>
+                </div>
+                <div class="flex pt-4">
+                    <p class="text-[#8C8C8D] pl-8 mr-2">Deliver Address:</p>
+                    <div class="pl-1">{{ customerInfo.DeliverAddress }}</div>
+                </div>
+                <div class="flex pt-4">
+                    <p class="text-[#8C8C8D] pl-8 mr-2">Phone Number:</p>
+                    <div class="pl-1.5">{{ customerInfo.PhoneNumber }}</div>
+                </div>
+                <div class="flex pt-4">
+                    <p class="text-[#8C8C8D] pl-8 mr-2">Email:</p>
+                    <div class="pl-2.5">{{ customerInfo.Email }}</div>
+                </div>
             </div>
         </div>
     </div>

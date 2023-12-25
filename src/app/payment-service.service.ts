@@ -95,6 +95,15 @@ deleteDiscount(_id: string): Observable<any> {
 
   handleError(error:HttpErrorResponse){
     return throwError(()=>new Error(error.message))
-    }    
-  
+    } 
+    
+    
+  customerInfo: any = {};
+
+  saveCustomerInfo(info: any): void {
+    this.customerInfo = info;
+  }
+  getCustomerInfo(): any {
+    return this.customerInfo;
+  }
 }

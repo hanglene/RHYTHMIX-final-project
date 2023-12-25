@@ -39,7 +39,7 @@ const routes: Routes = [
   {path: 'all-blog', component: AllblogComponent},
   {path: 'Update/:id', component: BlogeditComponent},
   {path: 'adminBlog', component:BlogComponent},
-  {path: 'CreateBlog', component: CreatenewblogComponent}
+  {path: 'CreateBlog', component: CreatenewblogComponent},
   {path: 'forget-pw', component: ForgetPwComponent},
   {path: 'reset/:token', component: ResetComponent},
   // {path: '', component:},

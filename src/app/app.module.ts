@@ -69,7 +69,7 @@ import { ResetComponent } from './reset/reset.component';
     BlogdeleteComponent,
     CreatenewblogComponent,
     ForgetPwComponent,
-    ResetComponent
+    ResetComponent,
  
 
   ],
